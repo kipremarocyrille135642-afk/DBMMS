@@ -1,0 +1,2323 @@
+SQL> CREATE TABLE BORROW (
+  2      LOANNO VARCHAR2(5),
+  3      CNAME VARCHAR2(15),
+  4      BNAME VARCHAR2(15),
+  5      AMOUNT NUMBER(9,2)
+  6  );
+CREATE TABLE BORROW (
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> CREATE TABLE BORROW (
+  2      LOANNO VARCHAR2(5),
+  3      CNAME VARCHAR2(15),
+  4      BNAME VARCHAR2(15),
+  5      AMOUNT NUMBER(9,2)
+  6  );
+CREATE TABLE BORROW (
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> INSERT INTO BORROW VALUES ('201','ANIL','VRCE',1000.00);
+
+1 ligne créée.
+
+SQL> I
+  2  INSERT INTO BORROW VALUES ('201','ANIL','VRCE',1000.00);
+INSERT INTO BORROW VALUES ('201','ANIL','VRCE',1000.00)
+*
+ERREUR à la ligne 2 :
+ORA-00933: la commande SQL ne se termine pas correctement 
+
+
+SQL> INSERT INTO BORROW VALUES ('206','MEHUL','AJNI',5000.00);
+
+1 ligne créée.
+
+SQL> INSERT INTO BORROW VALUES ('311','SUNIL','DHARAMPETH',3000.00);
+
+1 ligne créée.
+
+SQL> INSERT INTO BORROW VALUES ('321','MADHURI','ANDHERI',2000.00);
+
+1 ligne créée.
+
+SQL> INSERT INTO BORROW VALUES ('375','PRMOD','VIRAR',8000.00);
+
+1 ligne créée.
+
+SQL> INSERT INTO BORROW VALUES ('481','KRANTI','NEHRU PLACE',3000.00);
+
+1 ligne créée.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> SELECT COUNT(*) FROM BORROW;
+
+  COUNT(*)                                                                      
+----------                                                                      
+        18                                                                      
+
+SQL> CREATE TABLE BORROW (
+  2      LOANNO VARCHAR2(5) PRIMARY KEY,
+  3      CNAME VARCHAR2(15),
+  4      BNAME VARCHAR2(15),
+  5      AMOUNT NUMBER(9,2)
+  6  );
+CREATE TABLE BORROW (
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> DESC DEPOSIT;
+ Nom                                       NULL ?   Type
+ ----------------------------------------- -------- ----------------------------
+ ACTNO                                              VARCHAR2(5)
+ CNAME                                              VARCHAR2(15)
+ BNAME                                              VARCHAR2(15)
+ AMOUNT                                             NUMBER(9,2)
+ ADATE                                              DATE
+
+SQL> DESC BRANCH
+ Nom                                       NULL ?   Type
+ ----------------------------------------- -------- ----------------------------
+ BNAME                                              VARCHAR2(15)
+ CITY                                               VARCHAR2(15)
+ CNAME                                              VARCHAR2(15)
+
+SQL> DESC DEPOSIT;
+ Nom                                       NULL ?   Type
+ ----------------------------------------- -------- ----------------------------
+ ACTNO                                              VARCHAR2(5)
+ CNAME                                              VARCHAR2(15)
+ BNAME                                              VARCHAR2(15)
+ AMOUNT                                             NUMBER(9,2)
+ ADATE                                              DATE
+
+SQL> DESC BRANCH;
+ Nom                                       NULL ?   Type
+ ----------------------------------------- -------- ----------------------------
+ BNAME                                              VARCHAR2(15)
+ CITY                                               VARCHAR2(15)
+ CNAME                                              VARCHAR2(15)
+
+SQL> SELECT * FROM DEPOSIT;
+
+ACTNO CNAME           BNAME               AMOUNT ADATE                          
+----- --------------- --------------- ---------- --------                       
+100   ANIL            VRCE                  1000 01/03/95                       
+101   SUNIL           AJNI                  5000 04/01/96                       
+102   MEHUL           KAROLBAGH             3500 17/11/95                       
+104   MADHURI         CHANDI                1200 17/12/95                       
+105   PRMOD           M G ROAD              3000 27/03/96                       
+106   SANDIP          ANDHERI               2000 31/03/96                       
+107   SHIVANI         VIRAR                 1000 05/09/95                       
+108   KRANTI          NEHRU PLACE           5000 02/07/95                       
+109   MINU            POWAI                 7000 10/08/95                       
+101   Anil            andheri               7000 01/01/06                       
+102   sunil           virar                 5000 15/07/06                       
+
+ACTNO CNAME           BNAME               AMOUNT ADATE                          
+----- --------------- --------------- ---------- --------                       
+103   jay             villeparle            6500 12/03/06                       
+104   vijay           andheri               8000 17/09/06                       
+105   keyur           dadar                 7500 19/11/06                       
+106   mayur           borivali              5500 21/12/06                       
+
+15 lignes sélectionnées.
+
+SQL> SELECT * FROM DEPOSIT;
+
+ACTNO CNAME           BNAME               AMOUNT ADATE                          
+----- --------------- --------------- ---------- --------                       
+100   ANIL            VRCE                  1000 01/03/95                       
+101   SUNIL           AJNI                  5000 04/01/96                       
+102   MEHUL           KAROLBAGH             3500 17/11/95                       
+104   MADHURI         CHANDI                1200 17/12/95                       
+105   PRMOD           M G ROAD              3000 27/03/96                       
+106   SANDIP          ANDHERI               2000 31/03/96                       
+107   SHIVANI         VIRAR                 1000 05/09/95                       
+108   KRANTI          NEHRU PLACE           5000 02/07/95                       
+109   MINU            POWAI                 7000 10/08/95                       
+101   Anil            andheri               7000 01/01/06                       
+102   sunil           virar                 5000 15/07/06                       
+
+ACTNO CNAME           BNAME               AMOUNT ADATE                          
+----- --------------- --------------- ---------- --------                       
+103   jay             villeparle            6500 12/03/06                       
+104   vijay           andheri               8000 17/09/06                       
+105   keyur           dadar                 7500 19/11/06                       
+106   mayur           borivali              5500 21/12/06                       
+
+15 lignes sélectionnées.
+
+SQL> SELECT * FROM BORROW;
+
+LOANN CNAME           BNAME               AMOUNT                                
+----- --------------- --------------- ----------                                
+201   ANIL            VRCE                  1000                                
+206   MEHUL           AJNI                  5000                                
+311   SUNIL           DHARAMPETH            3000                                
+321   MADHURI         ANDHERI               2000                                
+375   PRMOD           VIRAR                 8000                                
+481   KRANTI          NEHRU PLACE           3000                                
+201   ANIL            VRCE                  1000                                
+206   MEHUL           AJNI                  5000                                
+311   SUNIL           DHARAMPETH            3000                                
+321   MADHURI         ANDHERI               2000                                
+375   PRMOD           VIRAR                 8000                                
+
+LOANN CNAME           BNAME               AMOUNT                                
+----- --------------- --------------- ----------                                
+481   KRANTI          NEHRU PLACE           3000                                
+201   ANIL            VRCE                  1000                                
+206   MEHUL           AJNI                  5000                                
+311   SUNIL           DHARAMPETH            3000                                
+321   MADHURI         ANDHERI               2000                                
+375   PRMOD           VIRAR                 8000                                
+481   KRANTI          NEHRU PLACE           3000                                
+
+18 lignes sélectionnées.
+
+SQL> SELECT * FROM CUSTOMERS;
+
+CNAME           CITY            BNAME                                           
+--------------- --------------- ---------------                                 
+ANIL            CALCUTTA        VRCE                                            
+SUNIL           DELHI           AJNI                                            
+MEHUL           BARODA          KAROLBAGH                                       
+MANDAR          PATNA           CHANDI                                          
+MADHURI         NAGPUR          DHARAMPETH                                      
+PRMOD           NAGPUR          M G ROAD                                        
+SANDIP          SURAT           ANDHERI                                         
+SHIVANI         BOMBAY          VIRAR                                           
+
+8 lignes sélectionnées.
+
+SQL> SELECT * FROM BRANCH;
+
+BNAME           CITY            CNAME                                           
+--------------- --------------- ---------------                                 
+VRCE            NAGPUR          ANIL                                            
+AJNI            NAGPUR          SUNIL                                           
+KAROLBAGH       DELHI           MEHUL                                           
+CHANDI          DELHI           MANDAR                                          
+DHARAMPETH      NAGPUR          MADHURI                                         
+M G ROAD        BANGLORE        PRMOD                                           
+ANDHERI         BOMBAY          SANDIP                                          
+VIRAR           BOMBAY          SHIVANI                                         
+
+8 lignes sélectionnées.
+
+SQL> SELECT CNAME FROM DEPOSIT
+  2  WHERE AMOUNT > 4000;
+
+CNAME                                                                           
+---------------                                                                 
+SUNIL                                                                           
+KRANTI                                                                          
+MINU                                                                            
+Anil                                                                            
+sunil                                                                           
+jay                                                                             
+vijay                                                                           
+keyur                                                                           
+mayur                                                                           
+
+9 lignes sélectionnées.
+
+SQL> SELECT CNAME FROM DEPOSIT
+  2  WHERE ADATE > DATE '1996-12-01';
+
+CNAME                                                                           
+---------------                                                                 
+Anil                                                                            
+sunil                                                                           
+jay                                                                             
+vijay                                                                           
+keyur                                                                           
+mayur                                                                           
+
+6 lignes sélectionnées.
+
+SQL> SELECT CNAME FROM CUSTOMERS
+  2  WHERE CITY = 'BOMBAY';
+
+CNAME                                                                           
+---------------                                                                 
+SHIVANI                                                                         
+
+SQL> CREATE TABLE ITEM_MASTER (
+  2      ITEM_NO NUMBER(5),
+  3      ITEM_NAME VARCHAR2(20),
+  4      PRICE NUMBER(8,2),
+  5      QUALITY VARCHAR2(15),
+  6      ITEM_PACK_DATE DATE
+  7  );
+CREATE TABLE ITEM_MASTER (
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> INSERT INTO ITEM_MASTER VALUES (1,'PEN',50,'GOOD',DATE '2024-01-10');
+INSERT INTO ITEM_MASTER VALUES (1,'PEN',50,'GOOD',DATE '2024-01-10')
+            *
+ERREUR à la ligne 1 :
+ORA-00947: nombre de valeurs insuffisant 
+
+
+SQL> INSERT INTO ITEM_MASTER VALUES (2,'BOOK',500,'GOOD',DATE '2024-02-15');
+INSERT INTO ITEM_MASTER VALUES (2,'BOOK',500,'GOOD',DATE '2024-02-15')
+            *
+ERREUR à la ligne 1 :
+ORA-00947: nombre de valeurs insuffisant 
+
+
+SQL> INSERT INTO ITEM_MASTER VALUES (3,'BAG',1200,'BEST',DATE '2024-03-01');
+INSERT INTO ITEM_MASTER VALUES (3,'BAG',1200,'BEST',DATE '2024-03-01')
+            *
+ERREUR à la ligne 1 :
+ORA-00947: nombre de valeurs insuffisant 
+
+
+SQL> INSERT INTO ITEM_MASTER VALUES (4,'BOX',300,'AVERAGE',DATE '2024-01-25');
+INSERT INTO ITEM_MASTER VALUES (4,'BOX',300,'AVERAGE',DATE '2024-01-25')
+            *
+ERREUR à la ligne 1 :
+ORA-00947: nombre de valeurs insuffisant 
+
+
+SQL> INSERT INTO ITEM_MASTER VALUES (5,'SCALE',50,'GOOD',DATE '2024-02-05');
+INSERT INTO ITEM_MASTER VALUES (5,'SCALE',50,'GOOD',DATE '2024-02-05')
+            *
+ERREUR à la ligne 1 :
+ORA-00947: nombre de valeurs insuffisant 
+
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> SELECT PRICE, QUALITY, ITEM_PACK_DATE
+  2  FROM ITEM_MASTER;
+
+     PRICE QUALITY         ITEM_PAC                                             
+---------- --------------- --------                                             
+       500 VERYGOOD        15/02/24                                             
+      1200 BEST            01/03/24                                             
+       300 AVERAGE         25/01/24                                             
+
+SQL> SELECT * FROM ITEM_MASTER;
+
+   ITEM_NO ITEM_NAME                 PRICE QUALITY         ITEM_PAC ITEM_PUR    
+---------- -------------------- ---------- --------------- -------- --------    
+         2 BOOK                        500 VERYGOOD        15/02/24             
+         3 BAG                        1200 BEST            01/03/24             
+         4 BOX                         300 AVERAGE         25/01/24             
+
+SQL> SELECT * FROM ITEM_MASTER
+  2  ORDER BY QUALITY;
+
+   ITEM_NO ITEM_NAME                 PRICE QUALITY         ITEM_PAC ITEM_PUR    
+---------- -------------------- ---------- --------------- -------- --------    
+         4 BOX                         300 AVERAGE         25/01/24             
+         3 BAG                        1200 BEST            01/03/24             
+         2 BOOK                        500 VERYGOOD        15/02/24             
+
+SQL> SELECT DISTINCT QUALITY
+  2  FROM ITEM_MASTER;
+
+QUALITY                                                                         
+---------------                                                                 
+VERYGOOD                                                                        
+BEST                                                                            
+AVERAGE                                                                         
+
+SQL> UPDATE ITEM_MASTER
+  2  SET QUALITY = 'VERYGOOD'
+  3  WHERE QUALITY = 'GOOD';
+
+0 lignes mises à jour.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> SELECT * FROM ITEM_MASTER
+  2  WHERE QUALITY = 'VERYGOOD';
+
+   ITEM_NO ITEM_NAME                 PRICE QUALITY         ITEM_PAC ITEM_PUR    
+---------- -------------------- ---------- --------------- -------- --------    
+         2 BOOK                        500 VERYGOOD        15/02/24             
+
+SQL> ALTER TABLE ITEM_MASTER
+  2  ADD ITEM_PUR_DATE DATE;
+ADD ITEM_PUR_DATE DATE
+    *
+ERREUR à la ligne 2 :
+ORA-01430: la colonne ajoutée existe déjà dans la table 
+
+
+SQL> SELECT * FROM ITEM_MASTER
+  2  WHERE PRICE > 500;
+
+   ITEM_NO ITEM_NAME                 PRICE QUALITY         ITEM_PAC ITEM_PUR    
+---------- -------------------- ---------- --------------- -------- --------    
+         3 BAG                        1200 BEST            01/03/24             
+
+SQL> DELETE FROM ITEM_MASTER
+  2  WHERE PRICE = 50;
+
+0 lignes supprimées.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> CREATE TABLE CUST_MASTER (
+  2      CUST_NO NUMBER(5),
+  3      CUST_NAME VARCHAR2(20),
+  4      ADDRESS1 VARCHAR2(30),
+  5      ADDRESS2 VARCHAR2(30),
+  6      CITY VARCHAR2(20),
+  7      STATE VARCHAR2(20),
+  8      PH_NO VARCHAR2(15)
+  9  );
+CREATE TABLE CUST_MASTER (
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> INSERT INTO CUST_MASTER VALUES (1,'PRIYA','Ring Road','Near Park','AHMEDABAD','Gujarat','7898452034');
+
+1 ligne créée.
+
+SQL> INSERT INTO CUST_MASTER VALUES (2,'RAHUL','MG Road','Sector 10','SURAT','Gujarat','9876543210');
+
+1 ligne créée.
+
+SQL> INSERT INTO CUST_MASTER VALUES (3,'ANITA','Nehru Road','West Zone','MUMBAI','Maharashtra','9123456780');
+
+1 ligne créée.
+
+SQL> INSERT INTO CUST_MASTER VALUES (4,'KIRAN','Station Road','Central','JAIPUR','Rajasthan','9988776655');
+
+1 ligne créée.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> SELECT * FROM CUST_MASTER;
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+C1    Priya                RingRoad                                             
+Puja Park                      Ahmedabad            Gujarat                     
+8989878548                                                                      
+                                                                                
+C2    Puja                 Lajpat Nager                                         
+Shyamal colony                 Banaras              UP                          
+7898456213                                                                      
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+                                                                                
+C3    Ankit                Borivali                                             
+Panchayat nager                Mumbai               Maharashtra                 
+7885984251                                                                      
+                                                                                
+C4    Ravi                 VajdiRoad                                            
+Nandbhoomi colony              Delhi                Delhi                       
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+7898452034                                                                      
+                                                                                
+C5    Alpa                 Jamanager Road                                       
+Railway colony                 Ahmedabad            Gujarat                     
+7465241589                                                                      
+                                                                                
+1     PRIYA                Ring Road                                            
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+Near Park                      AHMEDABAD            Gujarat                     
+7898452034                                                                      
+                                                                                
+2     RAHUL                MG Road                                              
+Sector 10                      SURAT                Gujarat                     
+9876543210                                                                      
+                                                                                
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+3     ANITA                Nehru Road                                           
+West Zone                      MUMBAI               Maharashtra                 
+9123456780                                                                      
+                                                                                
+4     KIRAN                Station Road                                         
+Central                        JAIPUR               Rajasthan                   
+9988776655                                                                      
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+                                                                                
+
+9 lignes sélectionnées.
+
+SQL> SELECT * FROM CUST_MASTER
+  2  WHERE STATE = 'Gujarat';
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+C1    Priya                RingRoad                                             
+Puja Park                      Ahmedabad            Gujarat                     
+8989878548                                                                      
+                                                                                
+C5    Alpa                 Jamanager Road                                       
+Railway colony                 Ahmedabad            Gujarat                     
+7465241589                                                                      
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+                                                                                
+1     PRIYA                Ring Road                                            
+Near Park                      AHMEDABAD            Gujarat                     
+7898452034                                                                      
+                                                                                
+2     RAHUL                MG Road                                              
+Sector 10                      SURAT                Gujarat                     
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+9876543210                                                                      
+                                                                                
+
+SQL> SELECT * FROM CUST_MASTER
+  2  ORDER BY CUST_NAME;
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+C5    Alpa                 Jamanager Road                                       
+Railway colony                 Ahmedabad            Gujarat                     
+7465241589                                                                      
+                                                                                
+3     ANITA                Nehru Road                                           
+West Zone                      MUMBAI               Maharashtra                 
+9123456780                                                                      
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+                                                                                
+C3    Ankit                Borivali                                             
+Panchayat nager                Mumbai               Maharashtra                 
+7885984251                                                                      
+                                                                                
+4     KIRAN                Station Road                                         
+Central                        JAIPUR               Rajasthan                   
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+9988776655                                                                      
+                                                                                
+1     PRIYA                Ring Road                                            
+Near Park                      AHMEDABAD            Gujarat                     
+7898452034                                                                      
+                                                                                
+C1    Priya                RingRoad                                             
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+Puja Park                      Ahmedabad            Gujarat                     
+8989878548                                                                      
+                                                                                
+C2    Puja                 Lajpat Nager                                         
+Shyamal colony                 Banaras              UP                          
+7898456213                                                                      
+                                                                                
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+2     RAHUL                MG Road                                              
+Sector 10                      SURAT                Gujarat                     
+9876543210                                                                      
+                                                                                
+C4    Ravi                 VajdiRoad                                            
+Nandbhoomi colony              Delhi                Delhi                       
+7898452034                                                                      
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+                                                                                
+
+9 lignes sélectionnées.
+
+SQL> SELECT DISTINCT CITY
+  2  FROM CUST_MASTER;
+
+CITY                                                                            
+--------------------                                                            
+Ahmedabad                                                                       
+Banaras                                                                         
+Mumbai                                                                          
+Delhi                                                                           
+AHMEDABAD                                                                       
+SURAT                                                                           
+MUMBAI                                                                          
+JAIPUR                                                                          
+
+8 lignes sélectionnées.
+
+SQL> UPDATE CUST_MASTER
+  2  SET ADDRESS1 = 'CG Road'
+  3  WHERE CUST_NAME = 'PRIYA';
+
+1 ligne mise à jour.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> SELECT CITY
+  2  FROM CUST_MASTER
+  3  WHERE STATE = 'Gujarat';
+
+CITY                                                                            
+--------------------                                                            
+Ahmedabad                                                                       
+Ahmedabad                                                                       
+AHMEDABAD                                                                       
+SURAT                                                                           
+
+SQL> ALTER TABLE CUST_MASTER
+  2  ADD PIN_CODE NUMBER(6);
+
+Table modifiée.
+
+SQL> ALTER TABLE CUST_MASTER
+  2  DROP COLUMN PIN_CODE;
+
+Table modifiée.
+
+SQL> DELETE FROM CUST_MASTER
+  2  WHERE PH_NO = '7898452034';
+
+2 lignes supprimées.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> CREATE TABLE CUST_MASTER (
+  2      CUST_NO VARCHAR2(5),
+  3      CUST_NAME VARCHAR2(20),
+  4      ADDRESS1 VARCHAR2(30),
+  5      ADDRESS2 VARCHAR2(30),
+  6      CITY VARCHAR2(20),
+  7      STATE VARCHAR2(20),
+  8      PH_NO VARCHAR2(15)
+  9  );
+CREATE TABLE CUST_MASTER (
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> INSERT INTO CUST_MASTER VALUES ('C1','Priya','RingRoad','Puja Park','Ahmedabad','Gujarat','8989878548');
+
+1 ligne créée.
+
+SQL> 
+SQL> INSERT INTO CUST_MASTER VALUES ('C2','Puja','Lajpat Nager','Shyamal colony','Banaras','UP','7898456213');
+
+1 ligne créée.
+
+SQL> 
+SQL> INSERT INTO CUST_MASTER VALUES ('C3','Ankit','Borivali','Panchayat nager','Mumbai','Maharashtra','7885984251');
+
+1 ligne créée.
+
+SQL> 
+SQL> INSERT INTO CUST_MASTER VALUES ('C4','Ravi','VajdiRoad','Nandbhoomi colony','Delhi','Delhi','7898452034');
+
+1 ligne créée.
+
+SQL> 
+SQL> INSERT INTO CUST_MASTER VALUES ('C5','Alpa','Jamanager Road','Railway colony','Ahmedabad','Gujarat','7465241589');
+
+1 ligne créée.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> SELECT * FROM CUST_MASTER;
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+C1    Priya                RingRoad                                             
+Puja Park                      Ahmedabad            Gujarat                     
+8989878548                                                                      
+                                                                                
+C2    Puja                 Lajpat Nager                                         
+Shyamal colony                 Banaras              UP                          
+7898456213                                                                      
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+                                                                                
+C3    Ankit                Borivali                                             
+Panchayat nager                Mumbai               Maharashtra                 
+7885984251                                                                      
+                                                                                
+C5    Alpa                 Jamanager Road                                       
+Railway colony                 Ahmedabad            Gujarat                     
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+7465241589                                                                      
+                                                                                
+2     RAHUL                MG Road                                              
+Sector 10                      SURAT                Gujarat                     
+9876543210                                                                      
+                                                                                
+3     ANITA                Nehru Road                                           
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+West Zone                      MUMBAI               Maharashtra                 
+9123456780                                                                      
+                                                                                
+4     KIRAN                Station Road                                         
+Central                        JAIPUR               Rajasthan                   
+9988776655                                                                      
+                                                                                
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+C1    Priya                RingRoad                                             
+Puja Park                      Ahmedabad            Gujarat                     
+8989878548                                                                      
+                                                                                
+C2    Puja                 Lajpat Nager                                         
+Shyamal colony                 Banaras              UP                          
+7898456213                                                                      
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+                                                                                
+C3    Ankit                Borivali                                             
+Panchayat nager                Mumbai               Maharashtra                 
+7885984251                                                                      
+                                                                                
+C4    Ravi                 VajdiRoad                                            
+Nandbhoomi colony              Delhi                Delhi                       
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+7898452034                                                                      
+                                                                                
+C5    Alpa                 Jamanager Road                                       
+Railway colony                 Ahmedabad            Gujarat                     
+7465241589                                                                      
+                                                                                
+
+12 lignes sélectionnées.
+
+SQL> SELECT * FROM CUST_MASTER
+  2  WHERE STATE = 'Gujarat';
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+C1    Priya                RingRoad                                             
+Puja Park                      Ahmedabad            Gujarat                     
+8989878548                                                                      
+                                                                                
+C5    Alpa                 Jamanager Road                                       
+Railway colony                 Ahmedabad            Gujarat                     
+7465241589                                                                      
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+                                                                                
+2     RAHUL                MG Road                                              
+Sector 10                      SURAT                Gujarat                     
+9876543210                                                                      
+                                                                                
+C1    Priya                RingRoad                                             
+Puja Park                      Ahmedabad            Gujarat                     
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+8989878548                                                                      
+                                                                                
+C5    Alpa                 Jamanager Road                                       
+Railway colony                 Ahmedabad            Gujarat                     
+7465241589                                                                      
+                                                                                
+
+SQL> SELECT * FROM CUST_MASTER
+  2  ORDER BY CUST_NAME;
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+C5    Alpa                 Jamanager Road                                       
+Railway colony                 Ahmedabad            Gujarat                     
+7465241589                                                                      
+                                                                                
+C5    Alpa                 Jamanager Road                                       
+Railway colony                 Ahmedabad            Gujarat                     
+7465241589                                                                      
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+                                                                                
+3     ANITA                Nehru Road                                           
+West Zone                      MUMBAI               Maharashtra                 
+9123456780                                                                      
+                                                                                
+C3    Ankit                Borivali                                             
+Panchayat nager                Mumbai               Maharashtra                 
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+7885984251                                                                      
+                                                                                
+C3    Ankit                Borivali                                             
+Panchayat nager                Mumbai               Maharashtra                 
+7885984251                                                                      
+                                                                                
+4     KIRAN                Station Road                                         
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+Central                        JAIPUR               Rajasthan                   
+9988776655                                                                      
+                                                                                
+C1    Priya                RingRoad                                             
+Puja Park                      Ahmedabad            Gujarat                     
+8989878548                                                                      
+                                                                                
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+C1    Priya                RingRoad                                             
+Puja Park                      Ahmedabad            Gujarat                     
+8989878548                                                                      
+                                                                                
+C2    Puja                 Lajpat Nager                                         
+Shyamal colony                 Banaras              UP                          
+7898456213                                                                      
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+                                                                                
+C2    Puja                 Lajpat Nager                                         
+Shyamal colony                 Banaras              UP                          
+7898456213                                                                      
+                                                                                
+2     RAHUL                MG Road                                              
+Sector 10                      SURAT                Gujarat                     
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+9876543210                                                                      
+                                                                                
+C4    Ravi                 VajdiRoad                                            
+Nandbhoomi colony              Delhi                Delhi                       
+7898452034                                                                      
+                                                                                
+
+12 lignes sélectionnées.
+
+SQL> SELECT DISTINCT CITY FROM CUST_MASTER;
+
+CITY                                                                            
+--------------------                                                            
+Ahmedabad                                                                       
+Banaras                                                                         
+Mumbai                                                                          
+SURAT                                                                           
+MUMBAI                                                                          
+JAIPUR                                                                          
+Delhi                                                                           
+
+7 lignes sélectionnées.
+
+SQL> UPDATE CUST_MASTER
+  2  SET ADDRESS1 = 'CG Road'
+  3  WHERE CUST_NAME = 'Priya';
+
+2 lignes mises à jour.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> SELECT CITY FROM CUST_MASTER
+  2  WHERE STATE = 'Gujarat';
+
+CITY                                                                            
+--------------------                                                            
+Ahmedabad                                                                       
+Ahmedabad                                                                       
+SURAT                                                                           
+Ahmedabad                                                                       
+Ahmedabad                                                                       
+
+SQL> ALTER TABLE CUST_MASTER
+  2  ADD PIN_CODE NUMBER(6);
+
+Table modifiée.
+
+SQL> ALTER TABLE CUST_MASTER
+  2  DROP COLUMN PIN_CODE;
+
+Table modifiée.
+
+SQL> DELETE FROM CUST_MASTER
+  2  WHERE PH_NO = '7898452034';
+
+1 ligne supprimée.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> CREATE TABLE PERSON (
+  2      PERSON_ID NUMBER(5),
+  3      FNAME VARCHAR2(20),
+  4      LNAME VARCHAR2(20),
+  5      CITY VARCHAR2(20),
+  6      SALARY NUMBER(10)
+  7  );
+CREATE TABLE PERSON (
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> INSERT INTO PERSON VALUES (1,'Sneha','Sheth','Rajkot',10000);
+INSERT INTO PERSON VALUES (1,'Sneha','Sheth','Rajkot',10000)
+            *
+ERREUR à la ligne 1 :
+ORA-00947: nombre de valeurs insuffisant 
+
+
+SQL> INSERT INTO PERSON VALUES (2,'Puja','Parmar','Ahmedabad',2000);
+INSERT INTO PERSON VALUES (2,'Puja','Parmar','Ahmedabad',2000)
+            *
+ERREUR à la ligne 1 :
+ORA-00947: nombre de valeurs insuffisant 
+
+
+SQL> INSERT INTO PERSON VALUES (3,'Riya','Gajar','Pune',8000);
+INSERT INTO PERSON VALUES (3,'Riya','Gajar','Pune',8000)
+            *
+ERREUR à la ligne 1 :
+ORA-00947: nombre de valeurs insuffisant 
+
+
+SQL> INSERT INTO PERSON VALUES (4,'Sandip','Jadeja','Pune',5000);
+INSERT INTO PERSON VALUES (4,'Sandip','Jadeja','Pune',5000)
+            *
+ERREUR à la ligne 1 :
+ORA-00947: nombre de valeurs insuffisant 
+
+
+SQL> INSERT INTO PERSON VALUES (5,'Alpesh','Prajapati','Mumbai',20000);
+INSERT INTO PERSON VALUES (5,'Alpesh','Prajapati','Mumbai',20000)
+            *
+ERREUR à la ligne 1 :
+ORA-00947: nombre de valeurs insuffisant 
+
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> SELECT PERSON_ID, FNAME FROM PERSON;
+
+ PERSON_ID FNAME                                                                
+---------- --------------------                                                 
+         1 Sneha                                                                
+         3 Riya                                                                 
+         4 Sandip                                                               
+         5 Alpesh                                                               
+
+SQL> SELECT * FROM PERSON;
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY STATE                BIRTHDAT    PINCODE                             
+---------- -------------------- -------- ----------                             
+         1 Sneha                Sheth                Rajkot                     
+     10000                                                                      
+                                                                                
+         3 Riya                 Gajar                Pune                       
+      8000                                                                      
+                                                                                
+         4 Sandip               Jadeja               Kolkata                    
+      5000                                                                      
+                                                                                
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY STATE                BIRTHDAT    PINCODE                             
+---------- -------------------- -------- ----------                             
+         5 Alpesh               Prajapati            Mumbai                     
+     20000                                                                      
+                                                                                
+
+SQL> SELECT * FROM PERSON
+  2  ORDER BY SALARY;
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY STATE                BIRTHDAT    PINCODE                             
+---------- -------------------- -------- ----------                             
+         4 Sandip               Jadeja               Kolkata                    
+      5000                                                                      
+                                                                                
+         3 Riya                 Gajar                Pune                       
+      8000                                                                      
+                                                                                
+         1 Sneha                Sheth                Rajkot                     
+     10000                                                                      
+                                                                                
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY STATE                BIRTHDAT    PINCODE                             
+---------- -------------------- -------- ----------                             
+         5 Alpesh               Prajapati            Mumbai                     
+     20000                                                                      
+                                                                                
+
+SQL> SELECT DISTINCT CITY FROM PERSON;
+
+CITY                                                                            
+--------------------                                                            
+Rajkot                                                                          
+Pune                                                                            
+Kolkata                                                                         
+Mumbai                                                                          
+
+SQL> UPDATE PERSON
+  2  SET CITY = 'Kolkata'
+  3  WHERE FNAME = 'Sandip';
+
+1 ligne mise à jour.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> SELECT * FROM PERSON
+  2  WHERE LNAME = 'Prajapati';
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY STATE                BIRTHDAT    PINCODE                             
+---------- -------------------- -------- ----------                             
+         5 Alpesh               Prajapati            Mumbai                     
+     20000                                                                      
+                                                                                
+
+SQL> ALTER TABLE PERSON
+  2  ADD (
+  3      STATE VARCHAR2(20),
+  4      BIRTHDATE DATE,
+  5      PINCODE NUMBER(6)
+  6  );
+    STATE VARCHAR2(20),
+    *
+ERREUR à la ligne 3 :
+ORA-01430: la colonne ajoutée existe déjà dans la table 
+
+
+SQL> SELECT * FROM PERSON
+  2  WHERE SALARY > 6000;
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY STATE                BIRTHDAT    PINCODE                             
+---------- -------------------- -------- ----------                             
+         1 Sneha                Sheth                Rajkot                     
+     10000                                                                      
+                                                                                
+         3 Riya                 Gajar                Pune                       
+      8000                                                                      
+                                                                                
+         5 Alpesh               Prajapati            Mumbai                     
+     20000                                                                      
+                                                                                
+
+SQL> DELETE FROM PERSON
+  2  WHERE SALARY < 3000;
+
+0 lignes supprimées.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> RENAME PERSON TO PERSON_MASTER;
+
+Table renommée.
+
+SQL> CREATE TABLE BANK_BRANCH (
+  2      BRANCH_ID VARCHAR2(5),
+  3      BRANCH_NAME VARCHAR2(20),
+  4      BRANCH_ADDRESS VARCHAR2(30),
+  5      BRANCH_CITY VARCHAR2(20),
+  6      BRANCH_STATE VARCHAR2(20),
+  7      BRANCH_OPEN_DATE DATE
+  8  );
+
+Table créée.
+
+SQL> INSERT INTO BANK_BRANCH VALUES ('B001','BOI','JagnathRoad','Rajkot','Gujarat',DATE '2015-03-22');
+
+1 ligne créée.
+
+SQL> INSERT INTO BANK_BRANCH VALUES ('B002','SBI','Boriwali Road','Mumbai','Maharashtra',DATE '2000-01-12');
+
+1 ligne créée.
+
+SQL> INSERT INTO BANK_BRANCH VALUES ('B003','HDFC','AgraRoad','Agra','U.P',DATE '1998-02-04');
+
+1 ligne créée.
+
+SQL> INSERT INTO BANK_BRANCH VALUES ('B004','DenaBank','CGRoad','Ahmedabad','Gujarat',DATE '2012-09-20');
+
+1 ligne créée.
+
+SQL> INSERT INTO BANK_BRANCH VALUES ('B005','ICICI','MajavdiRoad','Junagadh','Gujarat',DATE '2011-05-07');
+
+1 ligne créée.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> SELECT * FROM BANK_BRANCH;
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE         BRANCH_O                                                   
+-------------------- --------                                                   
+B001  BOI                  JagnathRoad                    Rajkot                
+Gujarat              22/03/15                                                   
+                                                                                
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra          12/01/00                                                   
+                                                                                
+B003  HDFC                 AgraRoad                       Agra                  
+U.P                  04/02/98                                                   
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE         BRANCH_O                                                   
+-------------------- --------                                                   
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat              20/09/12                                                   
+                                                                                
+B005  ICICI                MajavdiRoad                    Junagadh              
+Gujarat              07/05/11                                                   
+                                                                                
+
+SQL> SELECT BRANCH_ID FROM BANK_BRANCH;
+
+BRANC                                                                           
+-----                                                                           
+B001                                                                            
+B002                                                                            
+B003                                                                            
+B004                                                                            
+B005                                                                            
+
+SQL> SELECT BRANCH_ID, BRANCH_ADDRESS FROM BANK_BRANCH;
+
+BRANC BRANCH_ADDRESS                                                            
+----- ------------------------------                                            
+B001  JagnathRoad                                                               
+B002  Boriwali Road                                                             
+B003  AgraRoad                                                                  
+B004  CGRoad                                                                    
+B005  MajavdiRoad                                                               
+
+SQL> SELECT BRANCH_NAME, BRANCH_ADDRESS, BRANCH_CITY
+  2  FROM BANK_BRANCH;
+
+BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY                 
+-------------------- ------------------------------ --------------------        
+BOI                  JagnathRoad                    Rajkot                      
+SBI                  Boriwali Road                  Mumbai                      
+HDFC                 AgraRoad                       Agra                        
+DenaBank             CGRoad                         Ahmedabad                   
+ICICI                MajavdiRoad                    Junagadh                    
+
+SQL> SELECT BRANCH_CITY, BRANCH_STATE, BRANCH_OPEN_DATE
+  2  FROM BANK_BRANCH;
+
+BRANCH_CITY          BRANCH_STATE         BRANCH_O                              
+-------------------- -------------------- --------                              
+Rajkot               Gujarat              22/03/15                              
+Mumbai               Maharashtra          12/01/00                              
+Agra                 U.P                  04/02/98                              
+Ahmedabad            Gujarat              20/09/12                              
+Junagadh             Gujarat              07/05/11                              
+
+SQL> SELECT * FROM BANK_BRANCH
+  2  ORDER BY BRANCH_ID;
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE         BRANCH_O                                                   
+-------------------- --------                                                   
+B001  BOI                  JagnathRoad                    Rajkot                
+Gujarat              22/03/15                                                   
+                                                                                
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra          12/01/00                                                   
+                                                                                
+B003  HDFC                 AgraRoad                       Agra                  
+U.P                  04/02/98                                                   
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE         BRANCH_O                                                   
+-------------------- --------                                                   
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat              20/09/12                                                   
+                                                                                
+B005  ICICI                MajavdiRoad                    Junagadh              
+Gujarat              07/05/11                                                   
+                                                                                
+
+SQL> SELECT * FROM BANK_BRANCH
+  2  ORDER BY BRANCH_NAME;
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE         BRANCH_O                                                   
+-------------------- --------                                                   
+B001  BOI                  JagnathRoad                    Rajkot                
+Gujarat              22/03/15                                                   
+                                                                                
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat              20/09/12                                                   
+                                                                                
+B003  HDFC                 AgraRoad                       Agra                  
+U.P                  04/02/98                                                   
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE         BRANCH_O                                                   
+-------------------- --------                                                   
+B005  ICICI                MajavdiRoad                    Junagadh              
+Gujarat              07/05/11                                                   
+                                                                                
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra          12/01/00                                                   
+                                                                                
+
+SQL> SELECT * FROM BANK_BRANCH
+  2  ORDER BY BRANCH_CITY;
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE         BRANCH_O                                                   
+-------------------- --------                                                   
+B003  HDFC                 AgraRoad                       Agra                  
+U.P                  04/02/98                                                   
+                                                                                
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat              20/09/12                                                   
+                                                                                
+B005  ICICI                MajavdiRoad                    Junagadh              
+Gujarat              07/05/11                                                   
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE         BRANCH_O                                                   
+-------------------- --------                                                   
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra          12/01/00                                                   
+                                                                                
+B001  BOI                  JagnathRoad                    Rajkot                
+Gujarat              22/03/15                                                   
+                                                                                
+
+SQL> SELECT * FROM BANK_BRANCH
+  2  ORDER BY BRANCH_STATE;
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE         BRANCH_O                                                   
+-------------------- --------                                                   
+B001  BOI                  JagnathRoad                    Rajkot                
+Gujarat              22/03/15                                                   
+                                                                                
+B005  ICICI                MajavdiRoad                    Junagadh              
+Gujarat              07/05/11                                                   
+                                                                                
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat              20/09/12                                                   
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE         BRANCH_O                                                   
+-------------------- --------                                                   
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra          12/01/00                                                   
+                                                                                
+B003  HDFC                 AgraRoad                       Agra                  
+U.P                  04/02/98                                                   
+                                                                                
+
+SQL> ALTER TABLE BANK_BRANCH
+  2  MODIFY BRANCH_STATE VARCHAR2(30);
+
+Table modifiée.
+
+SQL> UPDATE BANK_BRANCH
+  2  SET BRANCH_NAME = 'Union'
+  3  WHERE BRANCH_ID = 'B003';
+
+1 ligne mise à jour.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> UPDATE BANK_BRANCH
+  2  SET BRANCH_STATE = 'Delhi'
+  3  WHERE BRANCH_NAME = 'BOI';
+
+1 ligne mise à jour.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> UPDATE BANK_BRANCH
+  2  SET BRANCH_OPEN_DATE = DATE '2015-11-04'
+  3  WHERE BRANCH_NAME = 'Union';
+
+1 ligne mise à jour.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> ALTER TABLE BANK_BRANCH
+  2  ADD PINCODE NUMBER(6);
+
+Table modifiée.
+
+SQL> UPDATE BANK_BRANCH
+  2  SET PINCODE = 360006
+  3  WHERE BRANCH_NAME = 'DenaBank';
+
+1 ligne mise à jour.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> DELETE FROM BANK_BRANCH
+  2  WHERE BRANCH_OPEN_DATE = DATE '2011-05-07';
+
+1 ligne supprimée.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> RENAME BANK_BRANCH TO BRANCH_MASTER;
+RENAME BANK_BRANCH TO BRANCH_MASTER
+                      *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> DESC BRANCH_MASTER;
+ Nom                                       NULL ?   Type
+ ----------------------------------------- -------- ----------------------------
+ BRANCH_ID                                          VARCHAR2(5)
+ BRANCH_NAME                                        VARCHAR2(20)
+ BRANCH_ADDRESS                                     VARCHAR2(30)
+ BRANCH_CITY                                        VARCHAR2(20)
+ BRANCH_STATE                                       VARCHAR2(30)
+ BRANCH_OPEN_DATE                                   DATE
+ PINCODE                                            NUMBER(6)
+
+SQL> CREATE TABLE BRANCH_INFO AS
+  2  SELECT * FROM BRANCH_MASTER;
+CREATE TABLE BRANCH_INFO AS
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> CREATE TABLE BRANCH_INFO AS
+  2  SELECT * FROM BRANCH_MASTER WHERE 1=2;
+CREATE TABLE BRANCH_INFO AS
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> CREATE TABLE JOB (
+  2      JOB_ID VARCHAR2(15),
+  3      JOB_NAME VARCHAR2(30),
+  4      MIN_SAL NUMBER(8),
+  5      MAX_SAL NUMBER(8)
+  6  );
+
+Table créée.
+
+SQL> INSERT INTO JOB VALUES ('IT_PROG','Programmer',4000,10000);
+
+1 ligne créée.
+
+SQL> INSERT INTO JOB VALUES ('MK_MGR','Marketing manager',9000,15000);
+
+1 ligne créée.
+
+SQL> INSERT INTO JOB VALUES ('FI_MGR','Finance manager',8200,12000);
+
+1 ligne créée.
+
+SQL> INSERT INTO JOB VALUES ('FI_ACC','Account',4200,9000);
+
+1 ligne créée.
+
+SQL> INSERT INTO JOB VALUES ('LEC','Lecturer',6000,17000);
+
+1 ligne créée.
+
+SQL> INSERT INTO JOB VALUES ('COMP_OP','Computer Operator',1500,3000);
+
+1 ligne créée.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> CREATE TABLE EMPLOYEE (
+  2      EMP_NO NUMBER(5),
+  3      EMP_NAME VARCHAR2(20),
+  4      EMP_SAL NUMBER(10),
+  5      EMP_COMM NUMBER(10),
+  6      DEPT_NO NUMBER(5)
+  7  );
+CREATE TABLE EMPLOYEE (
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> INSERT INTO EMPLOYEE VALUES (101,'Smith',800,NULL,20);
+
+1 ligne créée.
+
+SQL> INSERT INTO EMPLOYEE VALUES (102,'Snehal',1600,300,25);
+
+1 ligne créée.
+
+SQL> INSERT INTO EMPLOYEE VALUES (103,'Adama',1100,0,20);
+
+1 ligne créée.
+
+SQL> INSERT INTO EMPLOYEE VALUES (104,'Aman',3000,NULL,15);
+
+1 ligne créée.
+
+SQL> INSERT INTO EMPLOYEE VALUES (105,'Anita',5000,5000,10);
+
+1 ligne créée.
+
+SQL> INSERT INTO EMPLOYEE VALUES (106,'Sneha',2450,2450,10);
+
+1 ligne créée.
+
+SQL> INSERT INTO EMPLOYEE VALUES (107,'Anamika',2975,NULL,30);
+
+1 ligne créée.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> CREATE TABLE DEPOSIT (
+  2      A_NO NUMBER(5),
+  3      CNAME VARCHAR2(20),
+  4      BNAME VARCHAR2(20),
+  5      AMOUNT NUMBER(10),
+  6      ADATE DATE
+  7  );
+CREATE TABLE DEPOSIT (
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> INSERT INTO DEPOSIT VALUES (101,'Anil','andheri',7000,DATE '2006-01-01');
+
+1 ligne créée.
+
+SQL> INSERT INTO DEPOSIT VALUES (102,'sunil','virar',5000,DATE '2006-07-15');
+
+1 ligne créée.
+
+SQL> INSERT INTO DEPOSIT VALUES (103,'jay','villeparle',6500,DATE '2006-03-12');
+
+1 ligne créée.
+
+SQL> INSERT INTO DEPOSIT VALUES (104,'vijay','andheri',8000,DATE '2006-09-17');
+
+1 ligne créée.
+
+SQL> INSERT INTO DEPOSIT VALUES (105,'keyur','dadar',7500,DATE '2006-11-19');
+
+1 ligne créée.
+
+SQL> INSERT INTO DEPOSIT VALUES (106,'mayur','borivali',5500,DATE '2006-12-21');
+
+1 ligne créée.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> SELECT * FROM JOB;
+
+JOB_ID          JOB_NAME                          MIN_SAL    MAX_SAL            
+--------------- ------------------------------ ---------- ----------            
+IT_PROG         Programmer                           4000      10000            
+MK_MGR          Marketing manager                    9000      15000            
+FI_MGR          Finance manager                      8200      12000            
+FI_ACC          Account                              4200       9000            
+LEC             Lecturer                             6000      17000            
+COMP_OP         Computer Operator                    1500       3000            
+
+6 lignes sélectionnées.
+
+SQL> SELECT * FROM EMPLOYEE;
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO                
+---------- -------------------- ---------- ---------- ----------                
+       101 Smith                       800                    10                
+       102 Snehal                     1600        300         25                
+       103 NewName                    1100          0         20                
+       104 Aman                       3000                    10                
+       105 Anita                      5000       5000         10                
+       106 Sneha                      2450       2450         10                
+       107 Anamika                    2975                    30                
+       101 Smith                       800                    20                
+       102 Snehal                     1600        300         25                
+       103 Adama                      1100          0         20                
+       104 Aman                       3000                    15                
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO                
+---------- -------------------- ---------- ---------- ----------                
+       105 Anita                      5000       5000         10                
+       106 Sneha                      2450       2450         10                
+       107 Anamika                    2975                    30                
+
+14 lignes sélectionnées.
+
+SQL> SELECT * FROM DEPOSIT;
+
+ACTNO CNAME           BNAME               AMOUNT ADATE                          
+----- --------------- --------------- ---------- --------                       
+100   ANIL            VRCE                  1000 01/03/95                       
+101   SUNIL           AJNI                  5000 04/01/96                       
+102   MEHUL           KAROLBAGH             3500 17/11/95                       
+104   MADHURI         CHANDI                1200 17/12/95                       
+105   PRMOD           M G ROAD              3000 27/03/96                       
+106   SANDIP          ANDHERI               2000 31/03/96                       
+107   SHIVANI         VIRAR                 1000 05/09/95                       
+108   KRANTI          NEHRU PLACE           5000 02/07/95                       
+109   MINU            POWAI                 7000 10/08/95                       
+101   Anil            andheri               7000 01/01/06                       
+102   sunil           virar                 5000 15/07/06                       
+
+ACTNO CNAME           BNAME               AMOUNT ADATE                          
+----- --------------- --------------- ---------- --------                       
+103   jay             villeparle            6500 12/03/06                       
+104   vijay           andheri               8000 17/09/06                       
+105   keyur           dadar                 7500 19/11/06                       
+106   mayur           borivali              5500 21/12/06                       
+101   Anil            andheri               7000 01/01/06                       
+102   sunil           virar                 5000 15/07/06                       
+103   jay             villeparle            6500 12/03/06                       
+104   vijay           andheri               8000 17/09/06                       
+105   keyur           dadar                 7500 19/11/06                       
+106   mayur           borivali              5500 21/12/06                       
+
+21 lignes sélectionnées.
+
+SQL> CREATE TABLE JOBS (
+  2      JOB_ID VARCHAR2(15),
+  3      JOB_NAME VARCHAR2(30),
+  4      MIN_SAL NUMBER(8),
+  5      MAX_SAL NUMBER(8)
+  6  );
+CREATE TABLE JOBS (
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> INSERT INTO JOBS VALUES ('IT_PROG','Programmer',4000,10000);
+
+1 ligne créée.
+
+SQL> INSERT INTO JOBS VALUES ('MK_MGR','Marketing manager',9000,15000);
+
+1 ligne créée.
+
+SQL> INSERT INTO JOBS VALUES ('FI_MGR','Finance manager',8200,12000);
+
+1 ligne créée.
+
+SQL> INSERT INTO JOBS VALUES ('FI_ACC','Account',4200,9000);
+
+1 ligne créée.
+
+SQL> INSERT INTO JOBS VALUES ('LEC','Lecturer',6000,17000);
+
+1 ligne créée.
+
+SQL> INSERT INTO JOBS VALUES ('COMP_OP','Computer Operator',1500,3000);
+
+1 ligne créée.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> SELECT * FROM JOBS;
+
+JOB_ID          JOB_NAME                          MIN_SAL    MAX_SAL            
+--------------- ------------------------------ ---------- ----------            
+IT_PROG         Programmer                           4000      10000            
+MK_MGR          Marketing manager                    9000      15000            
+FI_MGR          Finance manager                      8200      12000            
+FI_ACC          Account                              4200       9000            
+FI_ACC          Account                              4200       9000            
+COMP_OP         Computer Operator                    1500       3000            
+IT_PROG         Programmer                           4000      10000            
+MK_MGR          Marketing manager                    9000      15000            
+FI_MGR          Finance manager                      8200      12000            
+FI_ACC          Account                              4200       9000            
+LEC             Lecturer                             6000      17000            
+
+JOB_ID          JOB_NAME                          MIN_SAL    MAX_SAL            
+--------------- ------------------------------ ---------- ----------            
+COMP_OP         Computer Operator                    1500       3000            
+
+12 lignes sélectionnées.
+
+SQL> SELECT * FROM EMPLOYEE;
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO                
+---------- -------------------- ---------- ---------- ----------                
+       101 Smith                       800                    10                
+       102 Snehal                     1600        300         25                
+       103 NewName                    1100          0         20                
+       104 Aman                       3000                    10                
+       105 Anita                      5000       5000         10                
+       106 Sneha                      2450       2450         10                
+       107 Anamika                    2975                    30                
+       101 Smith                       800                    20                
+       102 Snehal                     1600        300         25                
+       103 Adama                      1100          0         20                
+       104 Aman                       3000                    15                
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO                
+---------- -------------------- ---------- ---------- ----------                
+       105 Anita                      5000       5000         10                
+       106 Sneha                      2450       2450         10                
+       107 Anamika                    2975                    30                
+
+14 lignes sélectionnées.
+
+SQL> SELECT * FROM DEPOSIT;
+
+ACTNO CNAME           BNAME               AMOUNT ADATE                          
+----- --------------- --------------- ---------- --------                       
+100   ANIL            VRCE                  1000 01/03/95                       
+101   SUNIL           AJNI                  5000 04/01/96                       
+102   MEHUL           KAROLBAGH             3500 17/11/95                       
+104   MADHURI         CHANDI                1200 17/12/95                       
+105   PRMOD           M G ROAD              3000 27/03/96                       
+106   SANDIP          ANDHERI               2000 31/03/96                       
+107   SHIVANI         VIRAR                 1000 05/09/95                       
+108   KRANTI          NEHRU PLACE           5000 02/07/95                       
+109   MINU            POWAI                 7000 10/08/95                       
+101   Anil            andheri               7000 01/01/06                       
+102   sunil           virar                 5000 15/07/06                       
+
+ACTNO CNAME           BNAME               AMOUNT ADATE                          
+----- --------------- --------------- ---------- --------                       
+103   jay             villeparle            6500 12/03/06                       
+104   vijay           andheri               8000 17/09/06                       
+105   keyur           dadar                 7500 19/11/06                       
+106   mayur           borivali              5500 21/12/06                       
+101   Anil            andheri               7000 01/01/06                       
+102   sunil           virar                 5000 15/07/06                       
+103   jay             villeparle            6500 12/03/06                       
+104   vijay           andheri               8000 17/09/06                       
+105   keyur           dadar                 7500 19/11/06                       
+106   mayur           borivali              5500 21/12/06                       
+
+21 lignes sélectionnées.
+
+SQL> SELECT * FROM EMPLOYEE;
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO                
+---------- -------------------- ---------- ---------- ----------                
+       101 Smith                       800                    10                
+       102 Snehal                     1600        300         25                
+       103 NewName                    1100          0         20                
+       104 Aman                       3000                    10                
+       105 Anita                      5000       5000         10                
+       106 Sneha                      2450       2450         10                
+       107 Anamika                    2975                    30                
+       101 Smith                       800                    20                
+       102 Snehal                     1600        300         25                
+       103 Adama                      1100          0         20                
+       104 Aman                       3000                    15                
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO                
+---------- -------------------- ---------- ---------- ----------                
+       105 Anita                      5000       5000         10                
+       106 Sneha                      2450       2450         10                
+       107 Anamika                    2975                    30                
+
+14 lignes sélectionnées.
+
+SQL> SELECT * FROM JOBS;
+
+JOB_ID          JOB_NAME                          MIN_SAL    MAX_SAL            
+--------------- ------------------------------ ---------- ----------            
+IT_PROG         Programmer                           4000      10000            
+MK_MGR          Marketing manager                    9000      15000            
+FI_MGR          Finance manager                      8200      12000            
+FI_ACC          Account                              4200       9000            
+FI_ACC          Account                              4200       9000            
+COMP_OP         Computer Operator                    1500       3000            
+IT_PROG         Programmer                           4000      10000            
+MK_MGR          Marketing manager                    9000      15000            
+FI_MGR          Finance manager                      8200      12000            
+FI_ACC          Account                              4200       9000            
+LEC             Lecturer                             6000      17000            
+
+JOB_ID          JOB_NAME                          MIN_SAL    MAX_SAL            
+--------------- ------------------------------ ---------- ----------            
+COMP_OP         Computer Operator                    1500       3000            
+
+12 lignes sélectionnées.
+
+SQL> SELECT * FROM DEPOSIT;
+
+ACTNO CNAME           BNAME               AMOUNT ADATE                          
+----- --------------- --------------- ---------- --------                       
+100   ANIL            VRCE                  1000 01/03/95                       
+101   SUNIL           AJNI                  5000 04/01/96                       
+102   MEHUL           KAROLBAGH             3500 17/11/95                       
+104   MADHURI         CHANDI                1200 17/12/95                       
+105   PRMOD           M G ROAD              3000 27/03/96                       
+106   SANDIP          ANDHERI               2000 31/03/96                       
+107   SHIVANI         VIRAR                 1000 05/09/95                       
+108   KRANTI          NEHRU PLACE           5000 02/07/95                       
+109   MINU            POWAI                 7000 10/08/95                       
+101   Anil            andheri               7000 01/01/06                       
+102   sunil           virar                 5000 15/07/06                       
+
+ACTNO CNAME           BNAME               AMOUNT ADATE                          
+----- --------------- --------------- ---------- --------                       
+103   jay             villeparle            6500 12/03/06                       
+104   vijay           andheri               8000 17/09/06                       
+105   keyur           dadar                 7500 19/11/06                       
+106   mayur           borivali              5500 21/12/06                       
+101   Anil            andheri               7000 01/01/06                       
+102   sunil           virar                 5000 15/07/06                       
+103   jay             villeparle            6500 12/03/06                       
+104   vijay           andheri               8000 17/09/06                       
+105   keyur           dadar                 7500 19/11/06                       
+106   mayur           borivali              5500 21/12/06                       
+
+21 lignes sélectionnées.
+
+SQL> SELECT A_NO, AMOUNT
+  2  FROM DEPOSIT
+  3  WHERE ADATE BETWEEN DATE '2006-01-01' AND DATE '2006-07-25';
+SELECT A_NO, AMOUNT
+       *
+ERREUR à la ligne 1 :
+ORA-00904: "A_NO" : identificateur non valide 
+
+
+SQL> SELECT *
+  2  FROM JOBS
+  3  WHERE MIN_SAL > 4000;
+
+JOB_ID          JOB_NAME                          MIN_SAL    MAX_SAL            
+--------------- ------------------------------ ---------- ----------            
+MK_MGR          Marketing manager                    9000      15000            
+FI_MGR          Finance manager                      8200      12000            
+FI_ACC          Account                              4200       9000            
+FI_ACC          Account                              4200       9000            
+MK_MGR          Marketing manager                    9000      15000            
+FI_MGR          Finance manager                      8200      12000            
+FI_ACC          Account                              4200       9000            
+LEC             Lecturer                             6000      17000            
+
+8 lignes sélectionnées.
+
+SQL> SELECT EMP_NAME AS NAME, EMP_SAL
+  2  FROM EMPLOYEE
+  3  WHERE DEPT_NO = 20;
+
+NAME                    EMP_SAL                                                 
+-------------------- ----------                                                 
+NewName                    1100                                                 
+Smith                       800                                                 
+Adama                      1100                                                 
+
+SQL> SELECT EMP_NO, EMP_NAME, DEPT_NO
+  2  FROM EMPLOYEE
+  3  WHERE DEPT_NO IN (10,20);
+
+    EMP_NO EMP_NAME                DEPT_NO                                      
+---------- -------------------- ----------                                      
+       101 Smith                        10                                      
+       103 NewName                      20                                      
+       104 Aman                         10                                      
+       105 Anita                        10                                      
+       106 Sneha                        10                                      
+       101 Smith                        20                                      
+       103 Adama                        20                                      
+       105 Anita                        10                                      
+       106 Sneha                        10                                      
+
+9 lignes sélectionnées.
+
+SQL> SELECT *
+  2  FROM EMPLOYEE
+  3  WHERE EMP_NAME LIKE 'A%';
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO                
+---------- -------------------- ---------- ---------- ----------                
+       104 Aman                       3000                    10                
+       105 Anita                      5000       5000         10                
+       107 Anamika                    2975                    30                
+       103 Adama                      1100          0         20                
+       104 Aman                       3000                    15                
+       105 Anita                      5000       5000         10                
+       107 Anamika                    2975                    30                
+
+7 lignes sélectionnées.
+
+SQL> SELECT *
+  2  FROM EMPLOYEE
+  3  WHERE EMP_NAME LIKE '__a%';
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO                
+---------- -------------------- ---------- ---------- ----------                
+       104 Aman                       3000                    10                
+       107 Anamika                    2975                    30                
+       103 Adama                      1100          0         20                
+       104 Aman                       3000                    15                
+       107 Anamika                    2975                    30                
+
+SQL> SELECT *
+  2  FROM EMPLOYEE
+  3  WHERE EMP_NAME LIKE 'A_a%';
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO                
+---------- -------------------- ---------- ---------- ----------                
+       104 Aman                       3000                    10                
+       107 Anamika                    2975                    30                
+       103 Adama                      1100          0         20                
+       104 Aman                       3000                    15                
+       107 Anamika                    2975                    30                
+
+SQL> SELECT EMP_NAME, EMP_NO, EMP_SAL
+  2  FROM EMPLOYEE
+  3  WHERE EMP_NAME LIKE 'Ani__';
+
+EMP_NAME                 EMP_NO    EMP_SAL                                      
+-------------------- ---------- ----------                                      
+Anita                       105       5000                                      
+Anita                       105       5000                                      
+
+SQL> SELECT CNAME
+  2  FROM DEPOSIT
+  3  ORDER BY CNAME;
+
+CNAME                                                                           
+---------------                                                                 
+ANIL                                                                            
+Anil                                                                            
+Anil                                                                            
+jay                                                                             
+jay                                                                             
+keyur                                                                           
+keyur                                                                           
+KRANTI                                                                          
+MADHURI                                                                         
+mayur                                                                           
+mayur                                                                           
+
+CNAME                                                                           
+---------------                                                                 
+MEHUL                                                                           
+MINU                                                                            
+PRMOD                                                                           
+SANDIP                                                                          
+SHIVANI                                                                         
+SUNIL                                                                           
+sunil                                                                           
+sunil                                                                           
+vijay                                                                           
+vijay                                                                           
+
+21 lignes sélectionnées.
+
+SQL> SELECT SUM(AMOUNT) AS TOTAL_DEPOSIT
+  2  FROM DEPOSIT;
+
+TOTAL_DEPOSIT                                                                   
+-------------                                                                   
+       107700                                                                   
+
+SQL> SELECT SUM(AMOUNT)
+  2  FROM BORROW
+  3  WHERE BNAME = 'karolbagh';
+
+SUM(AMOUNT)                                                                     
+-----------                                                                     
+                                                                                
+
+SQL> SELECT MAX(AMOUNT)
+  2  FROM BORROW
+  3  WHERE BNAME = 'vrce';
+
+MAX(AMOUNT)                                                                     
+-----------                                                                     
+                                                                                
+
+SQL> SELECT COUNT(*)
+  2  FROM CUSTOMERS;
+
+  COUNT(*)                                                                      
+----------                                                                      
+         8                                                                      
+
+SQL> SELECT COUNT(DISTINCT CITY)
+  2  FROM CUSTOMERS;
+
+COUNT(DISTINCTCITY)                                                             
+-------------------                                                             
+                  7                                                             
+
+SQL> CREATE TABLE SUPPLIER AS
+  2  SELECT * FROM EMPLOYEE;
+CREATE TABLE SUPPLIER AS
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> CREATE TABLE SUP1 AS
+  2  SELECT EMP_NO, EMP_NAME
+  3  FROM EMPLOYEE;
+
+Table créée.
+
+SQL> CREATE TABLE SUP2 AS
+  2  SELECT * FROM EMPLOYEE
+  3  WHERE 1=2;
+
+Table créée.
+
+SQL> INSERT INTO SUP2
+  2  SELECT *
+  3  FROM EMPLOYEE
+  4  WHERE EMP_NAME LIKE '_n___';
+
+4 lignes créées.
+
+SQL> DELETE FROM SUP1;
+
+14 lignes supprimées.
+
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> DELETE FROM SUPPLIER
+  2  WHERE EMP_NO = 103;
+
+0 lignes supprimées.
+
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> RENAME SUP2 TO SUPLIER_TWO;
+RENAME SUP2 TO SUPLIER_TWO
+               *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> DROP TABLE SUP1;
+
+Table supprimée.
+
+SQL> UPDATE EMPLOYEE
+  2  SET DEPT_NO = 10
+  3  WHERE EMP_NAME LIKE '_m%';
+
+4 lignes mises à jour.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> UPDATE EMPLOYEE
+  2  SET EMP_NAME = 'NewName'
+  3  WHERE EMP_NO = 103;
+
+2 lignes mises à jour.
+
+SQL> 
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> SELECT table_name FROM user_tables;
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+JOB                                                                             
+SUP2                                                                            
+DEPOSIT                                                                         
+BRANCH                                                                          
+CUSTOMERS                                                                       
+BORROW                                                                          
+ITEM_MASTER                                                                     
+EMPLOYEE                                                                        
+CUST_MASTER                                                                     
+BANK_BRANCH                                                                     
+BRANCH_MASTER                                                                   
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+BRANCH_INFO                                                                     
+JOBS                                                                            
+SUPPLIER                                                                        
+PERSON_MASTER                                                                   
+SUPLIER_TWO                                                                     
+
+16 lignes sélectionnées.
+
+SQL> SELECT * FROM EMPLOYEE;
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO                
+---------- -------------------- ---------- ---------- ----------                
+       101 Smith                       800                    10                
+       102 Snehal                     1600        300         25                
+       103 NewName                    1100          0         20                
+       104 Aman                       3000                    10                
+       105 Anita                      5000       5000         10                
+       106 Sneha                      2450       2450         10                
+       107 Anamika                    2975                    30                
+       101 Smith                       800                    10                
+       102 Snehal                     1600        300         25                
+       103 NewName                    1100          0         20                
+       104 Aman                       3000                    10                
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO                
+---------- -------------------- ---------- ---------- ----------                
+       105 Anita                      5000       5000         10                
+       106 Sneha                      2450       2450         10                
+       107 Anamika                    2975                    30                
+
+14 lignes sélectionnées.
+
+SQL> SELECT * FROM JOBS;
+
+JOB_ID          JOB_NAME                          MIN_SAL    MAX_SAL            
+--------------- ------------------------------ ---------- ----------            
+IT_PROG         Programmer                           4000      10000            
+MK_MGR          Marketing manager                    9000      15000            
+FI_MGR          Finance manager                      8200      12000            
+FI_ACC          Account                              4200       9000            
+FI_ACC          Account                              4200       9000            
+COMP_OP         Computer Operator                    1500       3000            
+IT_PROG         Programmer                           4000      10000            
+MK_MGR          Marketing manager                    9000      15000            
+FI_MGR          Finance manager                      8200      12000            
+FI_ACC          Account                              4200       9000            
+LEC             Lecturer                             6000      17000            
+
+JOB_ID          JOB_NAME                          MIN_SAL    MAX_SAL            
+--------------- ------------------------------ ---------- ----------            
+COMP_OP         Computer Operator                    1500       3000            
+
+12 lignes sélectionnées.
+
+SQL> SELECT * FROM DEPOSIT;
+
+ACTNO CNAME           BNAME               AMOUNT ADATE                          
+----- --------------- --------------- ---------- --------                       
+100   ANIL            VRCE                  1000 01/03/95                       
+101   SUNIL           AJNI                  5000 04/01/96                       
+102   MEHUL           KAROLBAGH             3500 17/11/95                       
+104   MADHURI         CHANDI                1200 17/12/95                       
+105   PRMOD           M G ROAD              3000 27/03/96                       
+106   SANDIP          ANDHERI               2000 31/03/96                       
+107   SHIVANI         VIRAR                 1000 05/09/95                       
+108   KRANTI          NEHRU PLACE           5000 02/07/95                       
+109   MINU            POWAI                 7000 10/08/95                       
+101   Anil            andheri               7000 01/01/06                       
+102   sunil           virar                 5000 15/07/06                       
+
+ACTNO CNAME           BNAME               AMOUNT ADATE                          
+----- --------------- --------------- ---------- --------                       
+103   jay             villeparle            6500 12/03/06                       
+104   vijay           andheri               8000 17/09/06                       
+105   keyur           dadar                 7500 19/11/06                       
+106   mayur           borivali              5500 21/12/06                       
+101   Anil            andheri               7000 01/01/06                       
+102   sunil           virar                 5000 15/07/06                       
+103   jay             villeparle            6500 12/03/06                       
+104   vijay           andheri               8000 17/09/06                       
+105   keyur           dadar                 7500 19/11/06                       
+106   mayur           borivali              5500 21/12/06                       
+
+21 lignes sélectionnées.
+
+SQL> SELECT * FROM SUPPLIER;
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO                
+---------- -------------------- ---------- ---------- ----------                
+       101 Smith                       800                    20                
+       102 Snehal                     1600        300         25                
+       104 Aman                       3000                    15                
+       105 Anita                      5000       5000         10                
+       106 Sneha                      2450       2450         10                
+       107 Anamika                    2975                    30                
+
+6 lignes sélectionnées.
+
+SQL> SELECT * FROM BRANCH_MASTER;
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B001  BOI                  JagnathRoad                    Rajkot                
+Delhi                          22/03/15                                         
+                                                                                
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra                    12/01/00                                         
+                                                                                
+B003  Union                AgraRoad                       Agra                  
+U.P                            04/11/15                                         
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat                        20/09/12     360006                              
+                                                                                
+
+SQL> DESC EMPLOYEE;
+ Nom                                       NULL ?   Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_NO                                             NUMBER(5)
+ EMP_NAME                                           VARCHAR2(20)
+ EMP_SAL                                            NUMBER(10)
+ EMP_COMM                                           NUMBER(10)
+ DEPT_NO                                            NUMBER(5)
+
+SQL> SPOOL OFF;

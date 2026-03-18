@@ -1,0 +1,301 @@
+SQL> CREATE TABLE ITEM_MASTER (
+  2      ID VARCHAR2(5),
+  3      NAME VARCHAR2(20),
+  4      TYPE VARCHAR2(15),
+  5      PRICE NUMBER(10,2),
+  6      QUALITY VARCHAR2(15),
+  7      ITEM_PACK_DATE DATE
+  8  );
+
+Table créée.
+
+SQL> INSERT INTO ITEM_MASTER VALUES ('I1','Dairymilk','Chocolate',500,'Good',TO_DATE('12-08-2000','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> INSERT INTO ITEM_MASTER VALUES ('I2','Kajukatri','Mithai',1000,'Verygood',TO_DATE('15-01-2016','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> INSERT INTO ITEM_MASTER VALUES ('I3','Pizza','Fastfood',350,'Average',TO_DATE('20-02-2015','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> INSERT INTO ITEM_MASTER VALUES ('I4','Orangejuice','Juice',50,'Best',TO_DATE('05-02-2016','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> INSERT INTO ITEM_MASTER VALUES ('I5','Vanilla_cack','Bakery',2000,'Good',TO_DATE('01-01-2016','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> SELECT PRICE, QUALITY, ITEM_PACK_DATE FROM ITEM_MASTER;
+
+     PRICE QUALITY         ITEM_PAC                                             
+---------- --------------- --------                                             
+       500 Good            12/08/00                                             
+      1000 Verygood        15/01/16                                             
+       350 Average         20/02/15                                             
+        50 Best            05/02/16                                             
+      2000 Good            01/01/16                                             
+
+SQL> SELECT * FROM ITEM_MASTER;
+
+ID    NAME                 TYPE                 PRICE QUALITY         ITEM_PAC  
+----- -------------------- --------------- ---------- --------------- --------  
+I1    Dairymilk            Chocolate              500 Good            12/08/00  
+I2    Kajukatri            Mithai                1000 Verygood        15/01/16  
+I3    Pizza                Fastfood               350 Average         20/02/15  
+I4    Orangejuice          Juice                   50 Best            05/02/16  
+I5    Vanilla_cack         Bakery                2000 Good            01/01/16  
+
+SQL> SELECT * FROM ITEM_MASTER
+  2  ORDER BY QUALITY;
+
+ID    NAME                 TYPE                 PRICE QUALITY         ITEM_PAC  
+----- -------------------- --------------- ---------- --------------- --------  
+I3    Pizza                Fastfood               350 Average         20/02/15  
+I4    Orangejuice          Juice                   50 Best            05/02/16  
+I5    Vanilla_cack         Bakery                2000 Good            01/01/16  
+I1    Dairymilk            Chocolate              500 Good            12/08/00  
+I2    Kajukatri            Mithai                1000 Verygood        15/01/16  
+
+SQL> SELECT DISTINCT QUALITY FROM ITEM_MASTER;
+
+QUALITY                                                                         
+---------------                                                                 
+Good                                                                            
+Verygood                                                                        
+Average                                                                         
+Best                                                                            
+
+SQL> UPDATE ITEM_MASTER
+  2  SET QUALITY = 'Verygood'
+  3  WHERE QUALITY = 'Good';
+
+2 lignes mises à jour.
+
+SQL> SELECT * FROM ITEM_MASTER
+  2  WHERE QUALITY = 'Verygood';
+
+ID    NAME                 TYPE                 PRICE QUALITY         ITEM_PAC  
+----- -------------------- --------------- ---------- --------------- --------  
+I1    Dairymilk            Chocolate              500 Verygood        12/08/00  
+I2    Kajukatri            Mithai                1000 Verygood        15/01/16  
+I5    Vanilla_cack         Bakery                2000 Verygood        01/01/16  
+
+SQL> ALTER TABLE ITEM_MASTER
+  2  ADD ITEM_PUR_DATE DATE;
+
+Table modifiée.
+
+SQL> SELECT * FROM ITEM_MASTER
+  2  WHERE PRICE > 500;
+
+ID    NAME                 TYPE                 PRICE QUALITY         ITEM_PAC  
+----- -------------------- --------------- ---------- --------------- --------  
+ITEM_PUR                                                                        
+--------                                                                        
+I2    Kajukatri            Mithai                1000 Verygood        15/01/16  
+                                                                                
+                                                                                
+I5    Vanilla_cack         Bakery                2000 Verygood        01/01/16  
+                                                                                
+                                                                                
+
+SQL> DELETE FROM ITEM_MASTER
+  2  WHERE PRICE = 50;
+
+1 ligne supprimée.
+
+SQL> RENAME ITEM_MASTER TO ITEM_DETAIL;
+
+Table renommée.
+
+SQL> CREATE TABLE CUST_MASTER (
+  2      CUST_NO VARCHAR2(5),
+  3      CUST_NAME VARCHAR2(20),
+  4      ADDRESS1 VARCHAR2(30),
+  5      ADDRESS2 VARCHAR2(30),
+  6      CITY VARCHAR2(20),
+  7      STATE VARCHAR2(20),
+  8      PH_NO VARCHAR2(15)
+  9  );
+
+Table créée.
+
+SQL> INSERT INTO CUST_MASTER VALUES ('C1','Priya','RingRoad','Puja Park','Ahmedabad','Gujarat','8989878548');
+
+1 ligne créée.
+
+SQL> INSERT INTO CUST_MASTER VALUES ('C2','Puja','Lajpat Nagar','Shyamal Colony','Banaras','UP','7898456213');
+
+1 ligne créée.
+
+SQL> INSERT INTO CUST_MASTER VALUES ('C3','Ankit','Borivali','Panchayat Nagar','Mumbai','Maharashtra','7885984251');
+
+1 ligne créée.
+
+SQL> INSERT INTO CUST_MASTER VALUES ('C4','Ravi','VajdiRoad','Nandbhoomi Colony','Delhi','Delhi','7898452034');
+
+1 ligne créée.
+
+SQL> INSERT INTO CUST_MASTER VALUES ('C5','Alpa','Jamnagar Road','Railway Colony','Ahmedabad','Gujarat','7465241589');
+
+1 ligne créée.
+
+SQL> SELECT * FROM CUST_MASTER;
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+C1    Priya                RingRoad                                             
+Puja Park                      Ahmedabad            Gujarat                     
+8989878548                                                                      
+                                                                                
+C2    Puja                 Lajpat Nagar                                         
+Shyamal Colony                 Banaras              UP                          
+7898456213                                                                      
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+                                                                                
+C3    Ankit                Borivali                                             
+Panchayat Nagar                Mumbai               Maharashtra                 
+7885984251                                                                      
+                                                                                
+C4    Ravi                 VajdiRoad                                            
+Nandbhoomi Colony              Delhi                Delhi                       
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+7898452034                                                                      
+                                                                                
+C5    Alpa                 Jamnagar Road                                        
+Railway Colony                 Ahmedabad            Gujarat                     
+7465241589                                                                      
+                                                                                
+
+SQL> SELECT * FROM CUST_MASTER
+  2  WHERE STATE = 'Gujarat';
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+C1    Priya                RingRoad                                             
+Puja Park                      Ahmedabad            Gujarat                     
+8989878548                                                                      
+                                                                                
+C5    Alpa                 Jamnagar Road                                        
+Railway Colony                 Ahmedabad            Gujarat                     
+7465241589                                                                      
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+                                                                                
+
+SQL> SELECT * FROM CUST_MASTER
+  2  ORDER BY CUST_NAME;
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+C5    Alpa                 Jamnagar Road                                        
+Railway Colony                 Ahmedabad            Gujarat                     
+7465241589                                                                      
+                                                                                
+C3    Ankit                Borivali                                             
+Panchayat Nagar                Mumbai               Maharashtra                 
+7885984251                                                                      
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+                                                                                
+C1    Priya                RingRoad                                             
+Puja Park                      Ahmedabad            Gujarat                     
+8989878548                                                                      
+                                                                                
+C2    Puja                 Lajpat Nagar                                         
+Shyamal Colony                 Banaras              UP                          
+
+CUST_ CUST_NAME            ADDRESS1                                             
+----- -------------------- ------------------------------                       
+ADDRESS2                       CITY                 STATE                       
+------------------------------ -------------------- --------------------        
+PH_NO                                                                           
+---------------                                                                 
+7898456213                                                                      
+                                                                                
+C4    Ravi                 VajdiRoad                                            
+Nandbhoomi Colony              Delhi                Delhi                       
+7898452034                                                                      
+                                                                                
+
+SQL> SELECT DISTINCT CITY FROM CUST_MASTER;
+
+CITY                                                                            
+--------------------                                                            
+Ahmedabad                                                                       
+Banaras                                                                         
+Mumbai                                                                          
+Delhi                                                                           
+
+SQL> UPDATE CUST_MASTER
+  2  SET ADDRESS1 = 'CG Road'
+  3  WHERE CUST_NAME = 'Priya';
+
+1 ligne mise à jour.
+
+SQL> SELECT CITY FROM CUST_MASTER
+  2  WHERE STATE = 'Gujarat';
+
+CITY                                                                            
+--------------------                                                            
+Ahmedabad                                                                       
+Ahmedabad                                                                       
+
+SQL> ALTER TABLE CUST_MASTER
+  2  ADD PIN_CODE NUMBER(6);
+
+Table modifiée.
+
+SQL> ALTER TABLE CUST_MASTER
+  2  DROP COLUMN PIN_CODE;
+
+Table modifiée.
+
+SQL> DELETE FROM CUST_MASTER
+  2  WHERE PH_NO = '7898452034';
+
+1 ligne supprimée.
+
+SQL> RENAME CUST_MASTER TO CUSTOMER_DETAIL;
+
+Table renommée.
+
+SQL> SPOOL OFF;

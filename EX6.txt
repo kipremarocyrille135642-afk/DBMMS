@@ -1,0 +1,471 @@
+SQL> DELETE FROM CUSTOMER
+  2  WHERE PIN = 576201;
+
+1 ligne supprimée.
+
+SQL> UPDATE CUSTOMER
+  2  SET PIN = 476001
+  3  WHERE CUST_NO = 1004;
+
+1 ligne mise à jour.
+
+SQL> UPDATE CUSTOMER
+  2  SET ADDRESS = 'KAVI MUDDANNA MARG',
+  3      PIN = 576104
+  4  WHERE CUST_NO = 1003;
+
+1 ligne mise à jour.
+
+SQL> DELETE FROM CUSTOMER
+  2  WHERE STATE = 'GOA';
+
+1 ligne supprimée.
+
+SQL> ROLLBACK;
+
+Annulation (rollback) effectuée.
+
+SQL> SELECT * FROM CUSTOMER
+  2  WHERE STATUS = 'I';
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+      1006 SHILPA               PAI                                             
+12/4B                                              MNG                          
+KARNATAKA                574154 11/12/70 I                                      
+                                                                                
+
+SQL> SELECT DISTINCT STATE
+  2  FROM CUSTOMER;
+
+STATE                                                                           
+--------------------                                                            
+KARNATAKA                                                                       
+GOA                                                                             
+KERALA                                                                          
+
+SQL> SELECT * FROM CUSTOMER
+  2  ORDER BY STATE;
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+      1004 FELIX                SIMON                                           
+M-J-56                                             PJM                          
+GOA                      403002 12/02/71 A                                      
+                                                                                
+      1003 RAJ                  BAHADUR                                         
+SHANTI VILLA                                       UDP                          
+KARNATAKA                576101 01/08/70 V                                      
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+                                                                                
+      1007 BOSCO                RAKSHIT                                         
+R.K. PLAZA                                         BNG                          
+KARNATAKA                576201 01/01/71 A                                      
+                                                                                
+      1006 SHILPA               PAI                                             
+12/4B                                              MNG                          
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+KARNATAKA                574154 11/12/70 I                                      
+                                                                                
+      1005 RAJAN                KUTTY                                           
+A1 TRADERS                                         KNR                          
+KERALA                   670001 09/06/71 A                                      
+                                                                                
+
+SQL> SELECT STATE
+  2  FROM CUSTOMER
+  3  ORDER BY STATE DESC;
+
+STATE                                                                           
+--------------------                                                            
+KERALA                                                                          
+KARNATAKA                                                                       
+KARNATAKA                                                                       
+KARNATAKA                                                                       
+GOA                                                                             
+
+SQL> SELECT * FROM CUSTOMER
+  2  WHERE STATE = 'KARNATAKA'
+  3  AND STATUS = 'V';
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+      1003 RAJ                  BAHADUR                                         
+SHANTI VILLA                                       UDP                          
+KARNATAKA                576101 01/08/70 V                                      
+                                                                                
+
+SQL> SELECT * FROM CUSTOMER
+  2  WHERE STATE IN ('KARNATAKA','KERALA');
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+      1003 RAJ                  BAHADUR                                         
+SHANTI VILLA                                       UDP                          
+KARNATAKA                576101 01/08/70 V                                      
+                                                                                
+      1005 RAJAN                KUTTY                                           
+A1 TRADERS                                         KNR                          
+KERALA                   670001 09/06/71 A                                      
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+                                                                                
+      1006 SHILPA               PAI                                             
+12/4B                                              MNG                          
+KARNATAKA                574154 11/12/70 I                                      
+                                                                                
+      1007 BOSCO                RAKSHIT                                         
+R.K. PLAZA                                         BNG                          
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+KARNATAKA                576201 01/01/71 A                                      
+                                                                                
+
+SQL> SELECT * FROM CUSTOMER
+  2  WHERE STATE IN ('KARNATAKA','KERALA')
+  3  AND STATUS = 'A';
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+      1005 RAJAN                KUTTY                                           
+A1 TRADERS                                         KNR                          
+KERALA                   670001 09/06/71 A                                      
+                                                                                
+      1007 BOSCO                RAKSHIT                                         
+R.K. PLAZA                                         BNG                          
+KARNATAKA                576201 01/01/71 A                                      
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+                                                                                
+
+SQL> SELECT * FROM CUSTOMER
+  2  WHERE STATE = 'KARNATAKA'
+  3  AND PIN = 576201;
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+      1007 BOSCO                RAKSHIT                                         
+R.K. PLAZA                                         BNG                          
+KARNATAKA                576201 01/01/71 A                                      
+                                                                                
+
+SQL> SELECT * FROM CUSTOMER
+  2  WHERE CUST_NO <> 1005;
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+      1003 RAJ                  BAHADUR                                         
+SHANTI VILLA                                       UDP                          
+KARNATAKA                576101 01/08/70 V                                      
+                                                                                
+      1004 FELIX                SIMON                                           
+M-J-56                                             PJM                          
+GOA                      403002 12/02/71 A                                      
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+                                                                                
+      1006 SHILPA               PAI                                             
+12/4B                                              MNG                          
+KARNATAKA                574154 11/12/70 I                                      
+                                                                                
+      1007 BOSCO                RAKSHIT                                         
+R.K. PLAZA                                         BNG                          
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+KARNATAKA                576201 01/01/71 A                                      
+                                                                                
+
+SQL> SELECT * FROM CUSTOMER
+  2  WHERE STATE LIKE 'K%';
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+      1003 RAJ                  BAHADUR                                         
+SHANTI VILLA                                       UDP                          
+KARNATAKA                576101 01/08/70 V                                      
+                                                                                
+      1005 RAJAN                KUTTY                                           
+A1 TRADERS                                         KNR                          
+KERALA                   670001 09/06/71 A                                      
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+                                                                                
+      1006 SHILPA               PAI                                             
+12/4B                                              MNG                          
+KARNATAKA                574154 11/12/70 I                                      
+                                                                                
+      1007 BOSCO                RAKSHIT                                         
+R.K. PLAZA                                         BNG                          
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+KARNATAKA                576201 01/01/71 A                                      
+                                                                                
+
+SQL> SELECT * FROM CUSTOMER
+  2  WHERE FIRST_NAME LIKE '%RAJ%';
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+      1003 RAJ                  BAHADUR                                         
+SHANTI VILLA                                       UDP                          
+KARNATAKA                576101 01/08/70 V                                      
+                                                                                
+      1005 RAJAN                KUTTY                                           
+A1 TRADERS                                         KNR                          
+KERALA                   670001 09/06/71 A                                      
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+                                                                                
+
+SQL> SELECT * FROM CUSTOMER
+  2  WHERE CUST_NO BETWEEN 1003 AND 1005;
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+      1003 RAJ                  BAHADUR                                         
+SHANTI VILLA                                       UDP                          
+KARNATAKA                576101 01/08/70 V                                      
+                                                                                
+      1004 FELIX                SIMON                                           
+M-J-56                                             PJM                          
+GOA                      403002 12/02/71 A                                      
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+                                                                                
+      1005 RAJAN                KUTTY                                           
+A1 TRADERS                                         KNR                          
+KERALA                   670001 09/06/71 A                                      
+                                                                                
+
+SQL> SELECT * FROM CUSTOMER
+  2  WHERE B_DATE BETWEEN
+  3  TO_DATE('10-01-1971','DD-MM-YYYY')
+  4  AND TO_DATE('31-12-1971','DD-MM-YYYY');
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+      1004 FELIX                SIMON                                           
+M-J-56                                             PJM                          
+GOA                      403002 12/02/71 A                                      
+                                                                                
+      1005 RAJAN                KUTTY                                           
+A1 TRADERS                                         KNR                          
+KERALA                   670001 09/06/71 A                                      
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+                                                                                
+
+SQL> SELECT * FROM CUSTOMER
+  2  WHERE CITY IN ('UDP','MNG','BNG','PGN');
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+      1003 RAJ                  BAHADUR                                         
+SHANTI VILLA                                       UDP                          
+KARNATAKA                576101 01/08/70 V                                      
+                                                                                
+      1006 SHILPA               PAI                                             
+12/4B                                              MNG                          
+KARNATAKA                574154 11/12/70 I                                      
+
+   CUST_NO FIRST_NAME           LAST_NAME                                       
+---------- -------------------- --------------------                            
+ADDRESS                                            CITY                         
+-------------------------------------------------- ----------                   
+STATE                       PIN B_DATE   S                                      
+-------------------- ---------- -------- -                                      
+                                                                                
+      1007 BOSCO                RAKSHIT                                         
+R.K. PLAZA                                         BNG                          
+KARNATAKA                576201 01/01/71 A                                      
+                                                                                
+
+SQL> RENAME CUSTOMER TO CUST;
+
+Table renommée.
+
+SQL> SELECT SYSDATE + 15 FROM DUAL;
+
+SYSDATE+                                                                        
+--------                                                                        
+02/04/26                                                                        
+
+SQL> SELECT ADD_MONTHS(SYSDATE,5),
+  2         ADD_MONTHS(SYSDATE,-5)
+  3  FROM DUAL;
+
+ADD_MONT ADD_MONT                                                               
+-------- --------                                                               
+18/08/26 18/10/25                                                               
+
+SQL> SELECT ASCII('M') FROM DUAL;
+
+ASCII('M')                                                                      
+----------                                                                      
+        77                                                                      
+
+SQL> SELECT CHR(67), CHR(65), CHR(84)
+  2  FROM DUAL;
+
+C C C                                                                           
+- - -                                                                           
+C A T                                                                           
+
+SQL> SELECT LAST_DAY(SYSDATE)
+  2  FROM DUAL;
+
+LAST_DAY                                                                        
+--------                                                                        
+31/03/26                                                                        
+
+SQL> SELECT SYSDATE - TO_DATE('20-05-2015','DD-MM-YYYY')
+  2  FROM DUAL;
+
+SYSDATE-TO_DATE('20-05-2015','DD-MM-YYYY')                                      
+------------------------------------------                                      
+                                3955,97898                                      
+
+SQL> SELECT MONTHS_BETWEEN(SYSDATE,
+  2  TO_DATE('03-03-2016','DD-MM-YYYY'))
+  3  FROM DUAL;
+
+MONTHS_BETWEEN(SYSDATE,TO_DATE('03-03-2016','DD-MM-YYYY'))                      
+----------------------------------------------------------                      
+                                                120,515455                      
+
+SQL> SELECT INSTR('corporate floor','or',3,2)
+  2  FROM DUAL;
+
+INSTR('CORPORATEFLOOR','OR',3,2)                                                
+--------------------------------                                                
+                              14                                                
+
+SQL> SELECT INITCAP('marwadi university')
+  2  FROM DUAL;
+
+INITCAP('MARWADIUN                                                              
+------------------                                                              
+Marwadi University                                                              
+
+SQL> SELECT USER, USERENV('SESSIONID')
+  2  FROM DUAL;
+
+USER                                                                            
+--------------------------------------------------------------------------------
+USERENV('SESSIONID')                                                            
+--------------------                                                            
+KIPRE                                                                           
+              210134                                                            
+                                                                                
+
+SQL> SPOOL OFF;

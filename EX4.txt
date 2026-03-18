@@ -1,0 +1,730 @@
+SQL> CREATE TABLE PERSON (
+  2      PERSON_ID NUMBER,
+  3      FNAME VARCHAR2(20),
+  4      LNAME VARCHAR2(20),
+  5      CITY VARCHAR2(20),
+  6      SALARY NUMBER(10,2)
+  7  );
+
+Table créée.
+
+SQL> INSERT INTO PERSON VALUES (1,'Sneha','Sheth','Rajkot',10000);
+
+1 ligne créée.
+
+SQL> INSERT INTO PERSON VALUES (2,'Puja','Parmar','Ahmedabad',2000);
+
+1 ligne créée.
+
+SQL> INSERT INTO PERSON VALUES (3,'Riya','Gajar','Pune',8000);
+
+1 ligne créée.
+
+SQL> INSERT INTO PERSON VALUES (4,'Sandip','Jadeja','Pune',5000);
+
+1 ligne créée.
+
+SQL> INSERT INTO PERSON VALUES (5,'Alpesh','Prajapati','Mumbai',20000);
+
+1 ligne créée.
+
+SQL> SELECT PERSON_ID, FNAME FROM PERSON;
+
+ PERSON_ID FNAME                                                                
+---------- --------------------                                                 
+         1 Sneha                                                                
+         2 Puja                                                                 
+         3 Riya                                                                 
+         4 Sandip                                                               
+         5 Alpesh                                                               
+
+SQL> SELECT * FROM PERSON;
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY                                                                      
+----------                                                                      
+         1 Sneha                Sheth                Rajkot                     
+     10000                                                                      
+                                                                                
+         2 Puja                 Parmar               Ahmedabad                  
+      2000                                                                      
+                                                                                
+         3 Riya                 Gajar                Pune                       
+      8000                                                                      
+                                                                                
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY                                                                      
+----------                                                                      
+         4 Sandip               Jadeja               Pune                       
+      5000                                                                      
+                                                                                
+         5 Alpesh               Prajapati            Mumbai                     
+     20000                                                                      
+                                                                                
+
+SQL> SELECT * FROM PERSON
+  2  ORDER BY SALARY;
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY                                                                      
+----------                                                                      
+         2 Puja                 Parmar               Ahmedabad                  
+      2000                                                                      
+                                                                                
+         4 Sandip               Jadeja               Pune                       
+      5000                                                                      
+                                                                                
+         3 Riya                 Gajar                Pune                       
+      8000                                                                      
+                                                                                
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY                                                                      
+----------                                                                      
+         1 Sneha                Sheth                Rajkot                     
+     10000                                                                      
+                                                                                
+         5 Alpesh               Prajapati            Mumbai                     
+     20000                                                                      
+                                                                                
+
+SQL> SELECT DISTINCT CITY FROM PERSON;
+
+CITY                                                                            
+--------------------                                                            
+Rajkot                                                                          
+Ahmedabad                                                                       
+Pune                                                                            
+Mumbai                                                                          
+
+SQL> UPDATE PERSON
+  2  SET CITY = 'Kolkata'
+  3  WHERE FNAME = 'Sandip';
+
+1 ligne mise à jour.
+
+SQL> SELECT * FROM PERSON
+  2  WHERE LNAME = 'Prajapati';
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY                                                                      
+----------                                                                      
+         5 Alpesh               Prajapati            Mumbai                     
+     20000                                                                      
+                                                                                
+
+SQL> ALTER TABLE PERSON
+  2  ADD (
+  3      STATE VARCHAR2(20),
+  4      BIRTHDATE DATE,
+  5      PINCODE NUMBER(6)
+  6  );
+
+Table modifiée.
+
+SQL> SELECT * FROM PERSON
+  2  WHERE SALARY > 6000;
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY STATE                BIRTHDAT    PINCODE                             
+---------- -------------------- -------- ----------                             
+         1 Sneha                Sheth                Rajkot                     
+     10000                                                                      
+                                                                                
+         3 Riya                 Gajar                Pune                       
+      8000                                                                      
+                                                                                
+         5 Alpesh               Prajapati            Mumbai                     
+     20000                                                                      
+                                                                                
+
+SQL> DELETE FROM PERSON
+  2  WHERE SALARY < 3000;
+
+1 ligne supprimée.
+
+SQL> RENAME PERSON TO PERSON_MASTER;
+RENAME PERSON TO PERSON_MASTER
+                 *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> CREATE TABLE BANK_BRANCH (
+  2      BRANCH_ID VARCHAR2(10),
+  3      BRANCH_NAME VARCHAR2(20),
+  4      BRANCH_ADDRESS VARCHAR2(30),
+  5      BRANCH_CITY VARCHAR2(20),
+  6      BRANCH_STATE VARCHAR2(20),
+  7      BRANCH_OPEN_DATE DATE
+  8  );
+CREATE TABLE BANK_BRANCH (
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> INSERT INTO BANK_BRANCH VALUES ('B001','BOI','JagnathRoad','Rajkot','Gujarat',TO_DATE('22-03-2015','DD-MM-YYYY'));
+INSERT INTO BANK_BRANCH VALUES ('B001','BOI','JagnathRoad','Rajkot','Gujarat',TO_DATE('22-03-2015','DD-MM-YYYY'))
+            *
+ERREUR à la ligne 1 :
+ORA-00947: nombre de valeurs insuffisant 
+
+
+SQL> INSERT INTO BANK_BRANCH VALUES ('B002','SBI','Boriwali Road','Mumbai','Maharashtra',TO_DATE('12-01-2000','DD-MM-YYYY'));
+INSERT INTO BANK_BRANCH VALUES ('B002','SBI','Boriwali Road','Mumbai','Maharashtra',TO_DATE('12-01-2000','DD-MM-YYYY'))
+            *
+ERREUR à la ligne 1 :
+ORA-00947: nombre de valeurs insuffisant 
+
+
+SQL> INSERT INTO BANK_BRANCH VALUES ('B003','HDFC','AgraRoad','Agra','UP',TO_DATE('04-02-1998','DD-MM-YYYY'));
+INSERT INTO BANK_BRANCH VALUES ('B003','HDFC','AgraRoad','Agra','UP',TO_DATE('04-02-1998','DD-MM-YYYY'))
+            *
+ERREUR à la ligne 1 :
+ORA-00947: nombre de valeurs insuffisant 
+
+
+SQL> INSERT INTO BANK_BRANCH VALUES ('B004','DenaBank','CGRoad','Ahmedabad','Gujarat',TO_DATE('20-09-2012','DD-MM-YYYY'));
+INSERT INTO BANK_BRANCH VALUES ('B004','DenaBank','CGRoad','Ahmedabad','Gujarat',TO_DATE('20-09-2012','DD-MM-YYYY'))
+            *
+ERREUR à la ligne 1 :
+ORA-00947: nombre de valeurs insuffisant 
+
+
+SQL> INSERT INTO BANK_BRANCH VALUES ('B005','ICICI','MajavdiRoad','Junagadh','Gujarat',TO_DATE('07-05-2011','DD-MM-YYYY'));
+INSERT INTO BANK_BRANCH VALUES ('B005','ICICI','MajavdiRoad','Junagadh','Gujarat',TO_DATE('07-05-2011','DD-MM-YYYY'))
+            *
+ERREUR à la ligne 1 :
+ORA-00947: nombre de valeurs insuffisant 
+
+
+SQL> INSERT INTO BANK_BRANCH
+  2  (BRANCH_ID, BRANCH_NAME, BRANCH_ADDRESS, BRANCH_CITY, BRANCH_STATE, BRANCH_OPEN_DATE)
+  3  VALUES ('B001','BOI','JagnathRoad','Rajkot','Gujarat',TO_DATE('22-03-2015','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> 
+SQL> INSERT INTO BANK_BRANCH
+  2  (BRANCH_ID, BRANCH_NAME, BRANCH_ADDRESS, BRANCH_CITY, BRANCH_STATE, BRANCH_OPEN_DATE)
+  3  VALUES ('B002','SBI','Boriwali Road','Mumbai','Maharashtra',TO_DATE('12-01-2000','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> 
+SQL> INSERT INTO BANK_BRANCH
+  2  (BRANCH_ID, BRANCH_NAME, BRANCH_ADDRESS, BRANCH_CITY, BRANCH_STATE, BRANCH_OPEN_DATE)
+  3  VALUES ('B003','HDFC','AgraRoad','Agra','UP',TO_DATE('04-02-1998','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> 
+SQL> INSERT INTO BANK_BRANCH
+  2  (BRANCH_ID, BRANCH_NAME, BRANCH_ADDRESS, BRANCH_CITY, BRANCH_STATE, BRANCH_OPEN_DATE)
+  3  VALUES ('B004','DenaBank','CGRoad','Ahmedabad','Gujarat',TO_DATE('20-09-2012','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> 
+SQL> INSERT INTO BANK_BRANCH
+  2  (BRANCH_ID, BRANCH_NAME, BRANCH_ADDRESS, BRANCH_CITY, BRANCH_STATE, BRANCH_OPEN_DATE)
+  3  VALUES ('B005','ICICI','MajavdiRoad','Junagadh','Gujarat',TO_DATE('07-05-2011','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> SELECT * FROM BANK_BRANCH;
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B001  BOI                  JagnathRoad                    Rajkot                
+Delhi                          22/03/15                                         
+                                                                                
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra                    12/01/00                                         
+                                                                                
+B003  Union                AgraRoad                       Agra                  
+U.P                            04/11/15                                         
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat                        20/09/12     360006                              
+                                                                                
+B001  BOI                  JagnathRoad                    Rajkot                
+Gujarat                        22/03/15                                         
+                                                                                
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra                    12/01/00                                         
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B003  HDFC                 AgraRoad                       Agra                  
+UP                             04/02/98                                         
+                                                                                
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat                        20/09/12                                         
+                                                                                
+B005  ICICI                MajavdiRoad                    Junagadh              
+Gujarat                        07/05/11                                         
+                                                                                
+
+9 lignes sélectionnées.
+
+SQL> SELECT BRANCH_ID FROM BANK_BRANCH;
+
+BRANC                                                                           
+-----                                                                           
+B001                                                                            
+B002                                                                            
+B003                                                                            
+B004                                                                            
+B001                                                                            
+B002                                                                            
+B003                                                                            
+B004                                                                            
+B005                                                                            
+
+9 lignes sélectionnées.
+
+SQL> SELECT BRANCH_ID, BRANCH_ADDRESS FROM BANK_BRANCH;
+
+BRANC BRANCH_ADDRESS                                                            
+----- ------------------------------                                            
+B001  JagnathRoad                                                               
+B002  Boriwali Road                                                             
+B003  AgraRoad                                                                  
+B004  CGRoad                                                                    
+B001  JagnathRoad                                                               
+B002  Boriwali Road                                                             
+B003  AgraRoad                                                                  
+B004  CGRoad                                                                    
+B005  MajavdiRoad                                                               
+
+9 lignes sélectionnées.
+
+SQL> SELECT BRANCH_NAME, BRANCH_ADDRESS, BRANCH_CITY FROM BANK_BRANCH;
+
+BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY                 
+-------------------- ------------------------------ --------------------        
+BOI                  JagnathRoad                    Rajkot                      
+SBI                  Boriwali Road                  Mumbai                      
+Union                AgraRoad                       Agra                        
+DenaBank             CGRoad                         Ahmedabad                   
+BOI                  JagnathRoad                    Rajkot                      
+SBI                  Boriwali Road                  Mumbai                      
+HDFC                 AgraRoad                       Agra                        
+DenaBank             CGRoad                         Ahmedabad                   
+ICICI                MajavdiRoad                    Junagadh                    
+
+9 lignes sélectionnées.
+
+SQL> SELECT BRANCH_CITY, BRANCH_STATE, BRANCH_OPEN_DATE FROM BANK_BRANCH;
+
+BRANCH_CITY          BRANCH_STATE                   BRANCH_O                    
+-------------------- ------------------------------ --------                    
+Rajkot               Delhi                          22/03/15                    
+Mumbai               Maharashtra                    12/01/00                    
+Agra                 U.P                            04/11/15                    
+Ahmedabad            Gujarat                        20/09/12                    
+Rajkot               Gujarat                        22/03/15                    
+Mumbai               Maharashtra                    12/01/00                    
+Agra                 UP                             04/02/98                    
+Ahmedabad            Gujarat                        20/09/12                    
+Junagadh             Gujarat                        07/05/11                    
+
+9 lignes sélectionnées.
+
+SQL> SELECT * FROM BANK_BRANCH
+  2  ORDER BY BRANCH_ID;
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B001  BOI                  JagnathRoad                    Rajkot                
+Delhi                          22/03/15                                         
+                                                                                
+B001  BOI                  JagnathRoad                    Rajkot                
+Gujarat                        22/03/15                                         
+                                                                                
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra                    12/01/00                                         
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra                    12/01/00                                         
+                                                                                
+B003  Union                AgraRoad                       Agra                  
+U.P                            04/11/15                                         
+                                                                                
+B003  HDFC                 AgraRoad                       Agra                  
+UP                             04/02/98                                         
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat                        20/09/12     360006                              
+                                                                                
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat                        20/09/12                                         
+                                                                                
+B005  ICICI                MajavdiRoad                    Junagadh              
+Gujarat                        07/05/11                                         
+                                                                                
+
+9 lignes sélectionnées.
+
+SQL> SELECT * FROM BANK_BRANCH
+  2  ORDER BY BRANCH_NAME;
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B001  BOI                  JagnathRoad                    Rajkot                
+Delhi                          22/03/15                                         
+                                                                                
+B001  BOI                  JagnathRoad                    Rajkot                
+Gujarat                        22/03/15                                         
+                                                                                
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat                        20/09/12     360006                              
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat                        20/09/12                                         
+                                                                                
+B003  HDFC                 AgraRoad                       Agra                  
+UP                             04/02/98                                         
+                                                                                
+B005  ICICI                MajavdiRoad                    Junagadh              
+Gujarat                        07/05/11                                         
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra                    12/01/00                                         
+                                                                                
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra                    12/01/00                                         
+                                                                                
+B003  Union                AgraRoad                       Agra                  
+U.P                            04/11/15                                         
+                                                                                
+
+9 lignes sélectionnées.
+
+SQL> SELECT * FROM BANK_BRANCH
+  2  ORDER BY BRANCH_CITY;
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B003  Union                AgraRoad                       Agra                  
+U.P                            04/11/15                                         
+                                                                                
+B003  HDFC                 AgraRoad                       Agra                  
+UP                             04/02/98                                         
+                                                                                
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat                        20/09/12                                         
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat                        20/09/12     360006                              
+                                                                                
+B005  ICICI                MajavdiRoad                    Junagadh              
+Gujarat                        07/05/11                                         
+                                                                                
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra                    12/01/00                                         
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra                    12/01/00                                         
+                                                                                
+B001  BOI                  JagnathRoad                    Rajkot                
+Delhi                          22/03/15                                         
+                                                                                
+B001  BOI                  JagnathRoad                    Rajkot                
+Gujarat                        22/03/15                                         
+                                                                                
+
+9 lignes sélectionnées.
+
+SQL> SELECT * FROM BANK_BRANCH
+  2  ORDER BY BRANCH_STATE;
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B001  BOI                  JagnathRoad                    Rajkot                
+Delhi                          22/03/15                                         
+                                                                                
+B001  BOI                  JagnathRoad                    Rajkot                
+Gujarat                        22/03/15                                         
+                                                                                
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat                        20/09/12                                         
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B005  ICICI                MajavdiRoad                    Junagadh              
+Gujarat                        07/05/11                                         
+                                                                                
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat                        20/09/12     360006                              
+                                                                                
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra                    12/01/00                                         
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE                   BRANCH_O    PINCODE                              
+------------------------------ -------- ----------                              
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra                    12/01/00                                         
+                                                                                
+B003  Union                AgraRoad                       Agra                  
+U.P                            04/11/15                                         
+                                                                                
+B003  HDFC                 AgraRoad                       Agra                  
+UP                             04/02/98                                         
+                                                                                
+
+9 lignes sélectionnées.
+
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> ALTER TABLE BANK_BRANCH
+  2  MODIFY BRANCH_STATE VARCHAR2(30);
+
+Table modifiée.
+
+SQL> ALTER TABLE BANK_BRANCH
+  2  MODIFY BRANCH_STATE VARCHAR2(30);
+
+Table modifiée.
+
+SQL> UPDATE BANK_BRANCH
+  2  SET BRANCH_STATE = 'Delhi'
+  3  WHERE BRANCH_NAME = 'BOI';
+
+2 lignes mises à jour.
+
+SQL> UPDATE BANK_BRANCH
+  2  SET BRANCH_OPEN_DATE = TO_DATE('04-11-2015','DD-MM-YYYY')
+  3  WHERE BRANCH_NAME = 'Union';
+
+1 ligne mise à jour.
+
+SQL> ALTER TABLE BANK_BRANCH
+  2  ADD PINCODE NUMBER(6);
+ADD PINCODE NUMBER(6)
+    *
+ERREUR à la ligne 2 :
+ORA-01430: la colonne ajoutée existe déjà dans la table 
+
+
+SQL> UPDATE BANK_BRANCH
+  2  SET PINCODE = 360006
+  3  WHERE BRANCH_NAME = 'DenaBank';
+
+2 lignes mises à jour.
+
+SQL> DELETE FROM BANK_BRANCH
+  2  WHERE BRANCH_OPEN_DATE = TO_DATE('07-05-2011','DD-MM-YYYY');
+
+1 ligne supprimée.
+
+SQL> RENAME BANK_BRANCH TO BRANCH_MASTER;
+RENAME BANK_BRANCH TO BRANCH_MASTER
+                      *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> DESC BRANCH_MASTER;
+ Nom                                       NULL ?   Type
+ ----------------------------------------- -------- ----------------------------
+ BRANCH_ID                                          VARCHAR2(5)
+ BRANCH_NAME                                        VARCHAR2(20)
+ BRANCH_ADDRESS                                     VARCHAR2(30)
+ BRANCH_CITY                                        VARCHAR2(20)
+ BRANCH_STATE                                       VARCHAR2(30)
+ BRANCH_OPEN_DATE                                   DATE
+ PINCODE                                            NUMBER(6)
+
+SQL> CREATE TABLE BRANCH_INFO AS
+  2  SELECT * FROM BRANCH_MASTER;
+CREATE TABLE BRANCH_INFO AS
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> CREATE TABLE JOB (
+  2      JOB_ID VARCHAR2(10),
+  3      JOB_NAME VARCHAR2(30),
+  4      MIN_SAL NUMBER,
+  5      MAX_SAL NUMBER
+  6  );
+CREATE TABLE JOB (
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> INSERT INTO JOB VALUES ('IT_PROG','Programmer',4000,10000);
+
+1 ligne créée.
+
+SQL> INSERT INTO JOB VALUES ('MK_MGR','Marketing manager',9000,15000);
+
+1 ligne créée.
+
+SQL> INSERT INTO JOB VALUES ('FI_MGR','Finance manager',8200,12000);
+
+1 ligne créée.
+
+SQL> INSERT INTO JOB VALUES ('FI_ACC','Account',4200,9000);
+
+1 ligne créée.
+
+SQL> INSERT INTO JOB VALUES ('LEC','Lecturer',6000,17000);
+
+1 ligne créée.
+
+SQL> INSERT INTO JOB VALUES ('COMP_OP','Computer Operator',1500,3000);
+
+1 ligne créée.
+
+SQL> CREATE TABLE EMPLOYEE (
+  2      EMP_NO NUMBER,
+  3      EMP_NAME VARCHAR2(20),
+  4      EMP_SAL NUMBER,
+  5      EMP_COMM NUMBER,
+  6      DEPT_NO NUMBER
+  7  );
+CREATE TABLE EMPLOYEE (
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> INSERT INTO EMPLOYEE VALUES (101,'Smith',800,NULL,20);
+
+1 ligne créée.
+
+SQL> INSERT INTO EMPLOYEE VALUES (102,'Snehal',1600,300,25);
+
+1 ligne créée.
+
+SQL> INSERT INTO EMPLOYEE VALUES (103,'Adama',1100,0,20);
+
+1 ligne créée.
+
+SQL> INSERT INTO EMPLOYEE VALUES (104,'Aman',3000,NULL,15);
+
+1 ligne créée.
+
+SQL> INSERT INTO EMPLOYEE VALUES (105,'Anita',5000,5000,10);
+
+1 ligne créée.
+
+SQL> INSERT INTO EMPLOYEE VALUES (106,'Sneha',2450,2450,10);
+
+1 ligne créée.
+
+SQL> INSERT INTO EMPLOYEE VALUES (107,'Anamika',2975,NULL,30);
+
+1 ligne créée.
+
+SQL> CREATE TABLE DEPOSIT (
+  2      A_NO NUMBER,
+  3      CNAME VARCHAR2(20),
+  4      BNAME VARCHAR2(20),
+  5      AMOUNT NUMBER,
+  6      ADATE DATE
+  7  );
+CREATE TABLE DEPOSIT (
+             *
+ERREUR à la ligne 1 :
+ORA-00955: ce nom d'objet existe déjà 
+
+
+SQL> INSERT INTO DEPOSIT VALUES (101,'Anil','Andheri',7000,TO_DATE('01-01-2006','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> INSERT INTO DEPOSIT VALUES (102,'Sunil','Virar',5000,TO_DATE('15-07-2006','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> INSERT INTO DEPOSIT VALUES (103,'Jay','Villeparle',6500,TO_DATE('12-03-2006','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> INSERT INTO DEPOSIT VALUES (104,'Vijay','Andheri',8000,TO_DATE('17-09-2006','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> INSERT INTO DEPOSIT VALUES (105,'Keyur','Dadar',7500,TO_DATE('19-11-2006','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> INSERT INTO DEPOSIT VALUES (106,'Mayur','Borivali',5500,TO_DATE('21-12-2006','DD-MM-YYYY'));
+
+1 ligne créée.
+
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> SPOOL OFF;

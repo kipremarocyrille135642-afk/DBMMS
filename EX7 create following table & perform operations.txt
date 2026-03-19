@@ -1,0 +1,210 @@
+SQL> CREATE TABLE SALES (
+  2      SR_NO NUMBER,
+  3      NAME VARCHAR2(20),
+  4      SALES1 NUMBER,
+  5      SALES2 NUMBER,
+  6      SALES3 NUMBER,
+  7      TOTAL NUMBER
+  8  );
+
+Table créée.
+
+SQL> INSERT INTO SALES VALUES (1,'AMIT',4500,6500,4500,0);
+
+1 ligne créée.
+
+SQL> INSERT INTO SALES VALUES (2,'RAJAN',8500,4500,7000,0);
+
+1 ligne créée.
+
+SQL> INSERT INTO SALES VALUES (3,'SHIVAM',4500,9500,4500,0);
+
+1 ligne créée.
+
+SQL> INSERT INTO SALES VALUES (4,'SWATI',5820,4887,5666,0);
+
+1 ligne créée.
+
+SQL> INSERT INTO SALES VALUES (5,'RIVAN',8700,18000,15000,0);
+
+1 ligne créée.
+
+SQL> INSERT INTO SALES VALUES (6,'RAHUL',5000,6000,7000,0);
+
+1 ligne créée.
+
+SQL> INSERT INTO SALES VALUES (7,'RAMESH',7000,8000,9000,0);
+
+1 ligne créée.
+
+SQL> INSERT INTO SALES VALUES (8,'KIRAN',4000,3000,2000,0);
+
+1 ligne créée.
+
+SQL> INSERT INTO SALES VALUES (9,'NEHA',6000,7000,8000,0);
+
+1 ligne créée.
+
+SQL> INSERT INTO SALES VALUES (10,'RITESH',9000,10000,11000,0);
+
+1 ligne créée.
+
+SQL> SELECT SALES1, SALES2, SALES1 + SALES2 FROM SALES;
+
+    SALES1     SALES2 SALES1+SALES2                                             
+---------- ---------- -------------                                             
+      4500       6500         11000                                             
+      8500       4500         13000                                             
+      4500       9500         14000                                             
+      5820       4887         10707                                             
+      8700      18000         26700                                             
+      5000       6000         11000                                             
+      7000       8000         15000                                             
+      4000       3000          7000                                             
+      6000       7000         13000                                             
+      9000      10000         19000                                             
+
+10 lignes sélectionnées.
+
+SQL> SELECT NAME, SALES1, SALES2, SALES1 + SALES3 FROM SALES;
+
+NAME                     SALES1     SALES2 SALES1+SALES3                        
+-------------------- ---------- ---------- -------------                        
+AMIT                       4500       6500          9000                        
+RAJAN                      8500       4500         15500                        
+SHIVAM                     4500       9500          9000                        
+SWATI                      5820       4887         11486                        
+RIVAN                      8700      18000         23700                        
+RAHUL                      5000       6000         12000                        
+RAMESH                     7000       8000         16000                        
+KIRAN                      4000       3000          6000                        
+NEHA                       6000       7000         14000                        
+RITESH                     9000      10000         20000                        
+
+10 lignes sélectionnées.
+
+SQL> SELECT NAME, SALES1, SALES2, SALES1 - SALES3 FROM SALES;
+
+NAME                     SALES1     SALES2 SALES1-SALES3                        
+-------------------- ---------- ---------- -------------                        
+AMIT                       4500       6500             0                        
+RAJAN                      8500       4500          1500                        
+SHIVAM                     4500       9500             0                        
+SWATI                      5820       4887           154                        
+RIVAN                      8700      18000         -6300                        
+RAHUL                      5000       6000         -2000                        
+RAMESH                     7000       8000         -2000                        
+KIRAN                      4000       3000          2000                        
+NEHA                       6000       7000         -2000                        
+RITESH                     9000      10000         -2000                        
+
+10 lignes sélectionnées.
+
+SQL> SELECT SR_NO * 3 FROM SALES;
+
+   SR_NO*3                                                                      
+----------                                                                      
+         3                                                                      
+         6                                                                      
+         9                                                                      
+        12                                                                      
+        15                                                                      
+        18                                                                      
+        21                                                                      
+        24                                                                      
+        27                                                                      
+        30                                                                      
+
+10 lignes sélectionnées.
+
+SQL> SELECT NAME, (SALES1 + SALES2) - 500 FROM SALES;
+
+NAME                 (SALES1+SALES2)-500                                        
+-------------------- -------------------                                        
+AMIT                               10500                                        
+RAJAN                              12500                                        
+SHIVAM                             13500                                        
+SWATI                              10207                                        
+RIVAN                              26200                                        
+RAHUL                              10500                                        
+RAMESH                             14500                                        
+KIRAN                               6500                                        
+NEHA                               12500                                        
+RITESH                             18500                                        
+
+10 lignes sélectionnées.
+
+SQL> SELECT SALES1, SALES2, SALES1 + SALES2 * 5 / 2 FROM SALES;
+
+    SALES1     SALES2 SALES1+SALES2*5/2                                         
+---------- ---------- -----------------                                         
+      4500       6500             20750                                         
+      8500       4500             19750                                         
+      4500       9500             28250                                         
+      5820       4887           18037,5                                         
+      8700      18000             53700                                         
+      5000       6000             20000                                         
+      7000       8000             27000                                         
+      4000       3000             11500                                         
+      6000       7000             23500                                         
+      9000      10000             34000                                         
+
+10 lignes sélectionnées.
+
+SQL> UPDATE SALES
+  2  SET TOTAL = SALES1 + SALES3;
+
+10 lignes mises à jour.
+
+SQL> SELECT * FROM SALES
+  2  WHERE NAME LIKE 'R%';
+
+     SR_NO NAME                     SALES1     SALES2     SALES3      TOTAL     
+---------- -------------------- ---------- ---------- ---------- ----------     
+         2 RAJAN                      8500       4500       7000      15500     
+         5 RIVAN                      8700      18000      15000      23700     
+         6 RAHUL                      5000       6000       7000      12000     
+         7 RAMESH                     7000       8000       9000      16000     
+        10 RITESH                     9000      10000      11000      20000     
+
+SQL> SELECT * FROM SALES
+  2  WHERE NAME LIKE '_E%';
+
+     SR_NO NAME                     SALES1     SALES2     SALES3      TOTAL     
+---------- -------------------- ---------- ---------- ---------- ----------     
+         9 NEHA                       6000       7000       8000      14000     
+
+SQL> SELECT * FROM SALES
+  2  WHERE NAME LIKE '_I%';
+
+     SR_NO NAME                     SALES1     SALES2     SALES3      TOTAL     
+---------- -------------------- ---------- ---------- ---------- ----------     
+         5 RIVAN                      8700      18000      15000      23700     
+         8 KIRAN                      4000       3000       2000       6000     
+        10 RITESH                     9000      10000      11000      20000     
+
+SQL> UPDATE SALES
+  2  SET SALES1 = SALES1 + (SALES1 * 0.05);
+
+10 lignes mises à jour.
+
+SQL> UPDATE SALES
+  2  SET SALES3 = (SALES1 + SALES2) / 3;
+
+10 lignes mises à jour.
+
+SQL> UPDATE SALES
+  2  SET SALES2 = SALES2 + (SALES2 * 0.20);
+
+10 lignes mises à jour.
+
+SQL> UPDATE SALES
+  2  SET TOTAL = TOTAL / 2;
+
+10 lignes mises à jour.
+
+SQL> COMMIT;
+
+Validation effectuée.
+
+SQL> SPOOL OFF;
